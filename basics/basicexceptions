@@ -1,0 +1,17 @@
+try:
+   num =int(input("Enter a number : "))
+   print("Half of your nubmer is :", num/2)
+except ValueError:
+   print("Not a valid number")
+except ZeroDivisionError:
+   print("Can't divide by zero")
+finally:
+   print("Well this executes anyway")
+
+
+
+with open("output.txt","w") as f:
+   f.write("Whats up Mahendra")
+
+with open("output.txt","r") as f:
+   print("file content:", f.read())
