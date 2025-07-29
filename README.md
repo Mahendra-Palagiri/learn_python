@@ -12,7 +12,11 @@ A motivation to learn AI using Python, leading to this commitment.
 - **Topics Covered**: Python syntax, variables, functions, I/O  
 - **Status**: ✅ Completed  
 - **Days Spent**: 3  
-- **Time Frame**: July 2025  
+- **Time Frame**: July 2025
+
+<ins>Install Homebrew (Package Manager for Mac)</ins>
+`/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
 
 </details>
 
