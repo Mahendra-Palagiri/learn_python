@@ -14,8 +14,9 @@ A motivation to learn AI using Python, leading to this commitment.
 - **Days Spent**: 3  
 - **Time Frame**: July 2025
 
-<ins>Install Homebrew (Package Manager for Mac)</ins>
-`/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+###Install Homebrew (Package Manager for Mac)
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 
 </details>
