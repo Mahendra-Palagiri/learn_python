@@ -40,7 +40,7 @@ print("\n Summary Statistics:\n",df.describe())
 
 # 5️⃣ Load from CSV
 csvdata = pd.read_csv("./data/week2/sample.csv")
-print("\n csv header data:\n",csvdata.head())
+print("\n csv data:\n",csvdata.head())
 
 
 #🏋️ : Exercises
