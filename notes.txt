@@ -1,1 +1,2 @@
-use "command + /". -->  to comment a line in VS Code
+~~ use "command + /". -->  to comment a line in VS Code
+~~ To preview Readme.md in Vs code  on Mac  --> Command+Shift+V

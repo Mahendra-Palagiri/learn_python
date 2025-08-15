@@ -1,7 +1,34 @@
 ## 🐍 **Mahi's** Journey into Python and AI Land  
-A motivation to learn AI using Python, leading to this commitment.
+A motivation to learn AI using Python
 
+<details>
+<summary>📜 **Program Overview** — *(Click to Expand)*</summary>
+<br/>
 
+| Month | Week | Topic | Math Skills Introduced | Status | Completion Month |
+|-------|------|-------|------------------------|--------|------------------|
+| **1 – Python Foundations**  | Week 1 | Python basics | None (focus on syntax & logic) | ✅ Done| July 2025 |
+|       | Week 2 | NumPy, Pandas, Seaborn | Mean, median, variance, standard deviation | ✅ Done | Aug 2025 |
+| **2 – Data Analysis & Visualization**| Week 3 | Intro to ML workflow | Basic probability, correlation & covariance | 🔄 In Progress |  |
+|       | Week 4 | Advanced Pandas & Viz | Grouped statistics, weighted averages | 📅 To Do |  |
+| **3 – ML Foundations**  | Week 5 | Classification deep dive | Logistic function, odds, log-odds | 📅 To Do |  |
+|       | Week 6 | Regression deep dive | Linear equations, least squares, RMSE formula | 📅 To Do |  |
+|       | Week 7 | Model selection & validation | Bias-variance tradeoff, cross-validation math | 📅 To Do |  |
+|       | Week 8 | Mini capstone | Consolidation of above | 📅 To Do |  |
+| **4 – Deep Learning Foundations**  | Week 9 | Neural networks basics | Derivatives, chain rule, gradient descent math | 📅 To Do |  |
+|       | Week 10 | PyTorch basics | Matrix multiplication, dot products | 📅 To Do |  |
+|       | Week 11 | CNNs | Convolution operation math | 📅 To Do |  |
+|       | Week 12 | Mini capstone | Consolidation of above | 📅 To Do |  |
+| **5 – Applied AI**  | Week 13 | NLP | Probability distributions, cosine similarity | 📅 To Do |  |
+|       | Week 14 | Computer vision | Image filter kernels, normalization | 📅 To Do |  |
+|       | Week 15 | Time series | Seasonal decomposition, autocorrelation | 📅 To Do |  |
+|       | Week 16 | Mini capstone | Consolidation of above | 📅 To Do |  |
+| **6 – Deployment & Final Capstone**| Week 17 | Deployment basics | None new | 📅 To Do |  |
+|       | Week 18 | MLOps | None new | 📅 To Do |  |
+|       | Week 19–20 | Final capstone | Apply all math learned | 📅 To Do |  |
+
+</details>
+</br>
 
 <details>
 <summary>📅 Week-by-Week Learning Journey (Click to Expand...)</summary>
@@ -109,15 +136,101 @@ A motivation to learn AI using Python, leading to this commitment.
 <summary>📗 Week 2: NumPy, Pandas, Data Viz</summary>
 <br/>
 
-- **Topics Covered**: NumPy arrays, Pandas DataFrames, Matplotlib  
-- **Status**: 🚧 In Progress  
-- **Days Spent**: 1 (ongoing)  
-- **Time Frame**: July 2025  
+- **Topics Covered**: NumPy arrays, Pandas DataFrames, Matplotlib, Seaborn  
+- **Status**: ✅ Completed  
+- **Days Spent**: 4  
+- **Time Frame**: Aug 2025
+
+- **Core libraries and setup**:
+    > ### Install required libraries
+        ```bash
+        source .venv/bin/activate   # activate virtual environment
+        pip install numpy pandas matplotlib seaborn jupyterlab
+        pip freeze > requirements.txt
+        ```
+
+- **Key Skills**:
+    > ### NumPy  
+      - Array creation, slicing, broadcasting  
+      - Statistical functions: mean, std, variance  
+      - Random: seed, rand, randint  
+      - Split: split vs array_split  
+      - Transpose for 2D and ND arrays
+
+    > ### Pandas  
+      - Series & DataFrame creation  
+      - Column selection, filtering, sorting (multi-column)  
+      - GroupBy and aggregation  
+      - Merge and joins  
+      - Date parsing with `parse_dates`  
+      - Boolean masks and conditional columns with `np.where` / `np.select`
+
+    > ### Plotting  
+      - Matplotlib: bar charts, line charts, histograms  
+      - Seaborn: barplot, histplot (for reference only)  
+      - Sorting data before plotting for chronological trends
+
+- **Examples**:
+
+    > **NumPy Example**
+    ```python
+    import numpy as np
+
+    arr = np.array([10, 20, 30, 40, 50])
+    filtered = arr[arr > 25]
+    print("Filtered:", filtered)
+    print("Mean:", np.mean(arr))
+    ```
+
+    > **Pandas Example**
+    ```python
+    import pandas as pd
+
+    df = pd.DataFrame({
+        'Name': ['Alice', 'Bob', 'Charlie'],
+        'Score': [85, 92, 78],
+        'Grade': ['A', 'A', 'B']
+    })
+
+    passed = df[df['Score'] >= 80]
+    print("Passed:\n", passed)
+    print("Average Score by Grade:\n", df.groupby('Grade')['Score'].mean())
+    ```
+
+    > **Plotting Example (Matplotlib)**
+    ```python
+    import matplotlib.pyplot as plt
+
+    scores = {'Alice': 85, 'Bob': 92, 'Charlie': 78}
+    plt.bar(scores.keys(), scores.values(), color='skyblue')
+    plt.xlabel("Name")
+    plt.ylabel("Score")
+    plt.title("Scores by Student")
+    plt.show()
+    ```
+
+    > **Plotting Example (Seaborn — Reference)**
+    ```python
+    import seaborn as sns
+    import pandas as pd
+    import matplotlib.pyplot as plt
+
+    df = pd.DataFrame({
+        'Name': ['Alice', 'Bob', 'Charlie', 'David'],
+        'Score': [85, 92, 78, 88]
+    })
+
+    sns.barplot(x='Name', y='Score', data=df, palette='pastel')
+    plt.title("Scores by Student")
+    plt.show()
+    ```
 
 </details>
 
 <details>
 <summary>📙 Week 3: Coming Soon</summary>
+<br/>
+- **Status**: 🚧 WIP 
 <br/>
 
 - **Topics Planned**: Data preprocessing, Scikit-learn intro  
@@ -127,5 +240,3 @@ A motivation to learn AI using Python, leading to this commitment.
 </details>
 
 </details>
-
-#### Note : To preview Readme.md in Vs code  on Mac (Command+Shift+V)
