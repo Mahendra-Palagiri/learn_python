@@ -228,9 +228,40 @@ A motivation to learn AI using Python
 </details>
 
 <details>
-<summary>📙 Week 3: Coming Soon</summary>
+<summary>📙 Week 3: Introduction to Machine Learning workflow using the Iris dataset — explored K-Nearest Neighbors (KNN), train/test split, evaluation metrics (accuracy, classification report, confusion matrix), and cross-validation.</summary>
 <br/>
-- **Status**: 🚧 WIP 
+
+- **Topics Planned**: Data preprocessing, Scikit-learn intro  
+- **Status**: 🚧 InProgress   
+- **Days Spent**: 2  
+- **Time Frame**: Aug 2025 
+
+## Week 3 — Day 1 ✅
+
+### Focus: K-Nearest Neighbors (KNN)
+
+- Learned the **Machine Learning Workflow** (problem definition → data → split → model → evaluation).  
+- Explored the **Iris dataset** (features, targets, target names).  
+- Performed **train/test split** (80/20) to avoid overfitting.  
+- Implemented **KNN classifier** with scikit-learn.  
+- Understood key concepts:  
+  - `k` = number of neighbors to consult when predicting.  
+  - Trade-off between small `k` (more flexible, but noisy) vs. large `k` (smoother, but may miss local patterns).  
+  - Why stratification ensures balanced class distribution in splits.  
+  - The need for **cross-validation** to select the best `k`.  
+- Evaluated model using:  
+  - **Accuracy**  
+  - **Classification report** (precision, recall, f1-score)  
+  - **Confusion matrix**  
+
+✅ **Outcome:** Solid grasp of KNN as a classification algorithm and how to evaluate its performance.  
+
+</details>
+
+<details>
+<summary>📙 Week 4: Coming Soon</summary>
+<br/>
+- **Status**: 🚧 InProgress 
 <br/>
 
 - **Topics Planned**: Data preprocessing, Scikit-learn intro  
@@ -238,5 +269,4 @@ A motivation to learn AI using Python
 - **Time Frame**: TBD  
 
 </details>
-
 </details>
