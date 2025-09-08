@@ -189,7 +189,7 @@ ConfusionMatrixDisplay.from_estimator(lrmodel,X_test,Y_test)
 plt.show()
 
 #DECISION TREE
-dtmodel = DecisionTreeClassifier(random_state=42)
+dtmodel = DecisionTreeClassifier(max_depth=3,random_state=42)
 dtmodel.fit(X_train,Y_train)
 dt_y_pred = dtmodel.predict(X_test)
 
@@ -205,3 +205,19 @@ plt.show()
 plt.figure(figsize=(12,8))
 plot_tree(dtmodel,feature_names=X_train.columns,class_names=iris.target_names,filled=True)
 plt.show()
+
+from sklearn.tree import export_graphviz
+import graphviz
+
+dot_data = export_graphviz(dtmodel, 
+                           out_file=None, 
+                           feature_names=X_train.columns, 
+                           class_names=iris.target_names,
+                           filled=True, rounded=True,
+                           special_characters=True)
+
+# Convert to Graphviz object
+graph = graphviz.Source(dot_data)
+
+# Save to PDF
+graph.render("decision_tree_iris", format="pdf", cleanup=True)
