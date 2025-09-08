@@ -50,7 +50,7 @@ import seaborn as sns
 	# •	Turn the target into a Series.
 	# •	Show the first 5 rows.
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# data (sepal lenght, sepal width, petal length, petal width. --> in centimeters)
+# data/features (sepal lenght, sepal width, petal length, petal width. --> in centimeters)
 # target
 # target_names (Setosa, Versicolour, Virgininica)
 # feature_names )['sepal length (cm)', 'sepal width (cm)', 'petal length (cm)', 'petal width (cm)'])
@@ -139,7 +139,7 @@ print(len(X_train)/len(fdc)*100)
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 from sklearn.neighbors import KNeighborsClassifier   #Import the model
 from sklearn.linear_model import LogisticRegression
-from sklearn. tree import DecisionTreeClassifier
+from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score,classification_report, ConfusionMatrixDisplay
 
 
@@ -148,7 +148,7 @@ model.fit(X_train,Y_train) #Run the model (now the model has trained on the data
 Y_pred = model.predict(X_test) #Predict on the test data 
 
 Accuracy  = accuracy_score(Y_test, Y_pred) #Check the accuracy of prediction. i.e Compare true lables (Y_test) with predicted labels (Y_pred)
-print(Accuracy)
+print("KNN Accuracy --> ",Accuracy)
 Report = classification_report(Y_test,Y_pred,target_names=iris.target_names) #Generate a report
 print(Report)
 
@@ -173,4 +173,30 @@ ConfusionMatrixDisplay.from_estimator(model,X_test,Y_test)
 plt.show()
 
 
+#LOGISTIC REGRESSION
+lrmodel = LogisticRegression(max_iter=1000)
+lrmodel.fit(X_train,Y_train)
 
+lr_y_pred = lrmodel.predict(X_test)
+lraccur = accuracy_score(Y_test,lr_y_pred)
+print("logistic regression accuracy  --> ",lraccur)
+
+lrreport = classification_report(Y_test,lr_y_pred,target_names=iris.target_names)
+print(lrreport)
+
+ConfusionMatrixDisplay.from_estimator(lrmodel,X_test,Y_test)
+plt.show()
+
+#DECISION TREE
+dtmodel = DecisionTreeClassifier(random_state=42)
+dtmodel.fit(X_train,Y_train)
+dt_y_pred = dtmodel.predict(X_test)
+
+dtaccuracy = accuracy_score(Y_test,dt_y_pred)
+print("Decision tree accuracy --> ",dtaccuracy)
+
+dtreport = classification_report(Y_test,dt_y_pred,target_names=iris.target_names)
+print(dtreport)
+
+ConfusionMatrixDisplay.from_estimator(dtmodel,X_test,Y_test)
+plt.show()
