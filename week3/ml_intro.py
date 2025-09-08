@@ -141,6 +141,7 @@ from sklearn.neighbors import KNeighborsClassifier   #Import the model
 from sklearn.linear_model import LogisticRegression
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score,classification_report, ConfusionMatrixDisplay
+from sklearn.tree import plot_tree
 
 
 model = KNeighborsClassifier(n_neighbors=5) #Create the Model (We are asking 5 neighbours in the model) when the model classifies a flower, it looks at the 5 closest data points (neighbors) in the training set and uses majority vote to decide the class
@@ -199,4 +200,8 @@ dtreport = classification_report(Y_test,dt_y_pred,target_names=iris.target_names
 print(dtreport)
 
 ConfusionMatrixDisplay.from_estimator(dtmodel,X_test,Y_test)
+plt.show()
+
+plt.figure(figsize=(12,8))
+plot_tree(dtmodel,feature_names=X_train.columns,class_names=iris.target_names,filled=True)
 plt.show()
