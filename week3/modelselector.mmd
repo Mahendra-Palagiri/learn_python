@@ -1,0 +1,63 @@
+📌 Model Selection Cheat Sheet
+
+🔹 1. Classification (Predict categories)
+	•	Logistic Regression → Simple, interpretable, fast. Works well when classes are linearly separable.
+	•	KNN → Easy to understand, good for small datasets. Sensitive to scaling.
+	•	Decision Tree → Human-readable flowchart of decisions. Can overfit.
+	•	Random Forest / Gradient Boosting → Stronger accuracy, handles complex data.
+	•	SVM → Good for clear boundaries, but harder to tune.
+	•	Neural Networks → Use only for large/complex datasets.
+
+⸻
+
+🔹 2. Regression (Predict numbers)
+	•	Linear Regression → Best when data follows straight-line relations.
+	•	Ridge / Lasso → Linear regression with penalties to avoid overfitting.
+	•	Decision Tree Regressor → Can capture non-linear patterns.
+	•	Random Forest / Gradient Boosting → Stronger for complex data, less interpretable.
+
+⸻
+
+🔹 3. Unsupervised Learning (No labels)
+	•	KMeans → Simple, fast clustering. Needs you to pick number of clusters.
+	•	DBSCAN / Hierarchical → Detects clusters of varying shapes and sizes.
+	•	PCA → Reduce dataset dimensions, keep main information.
+	•	t-SNE / UMAP → Great for visualization of high-dimensional data.
+
+```mermaid
+flowchart TD
+    A[What is your target?] --> B[Category (Yes/No, Types, Classes)]
+    A --> C[Number (continuous values)]
+    A --> D[No target (just data)?]
+
+    B --> B1[Binary Classification (2 classes)]
+    B --> B2[Multi-class Classification (>2 classes)]
+
+    C --> C1[Simple Linear Relation]
+    C --> C2[Complex / Non-linear Relation]
+
+    D --> D1[Clustering (grouping)]
+    D --> D2[Dimensionality Reduction]
+
+    %% Classification branch
+    B1 --> E1[Logistic Regression (interpretable)]
+    B1 --> E2[KNN (simple, small datasets)]
+    B1 --> E3[Decision Tree (easy to explain)]
+    B1 --> E4[Random Forest / Gradient Boosting (higher accuracy)]
+
+    B2 --> F1[KNN (quick baseline)]
+    B2 --> F2[Decision Tree / Random Forest]
+    B2 --> F3[SVM (if clear boundaries)]
+    B2 --> F4[Neural Networks (large/complex data)]
+
+    %% Regression branch
+    C1 --> G1[Linear Regression]
+    C1 --> G2[Ridge/Lasso (regularized)]
+    C2 --> G3[Decision Tree Regressor]
+    C2 --> G4[Random Forest / Gradient Boosting]
+
+    %% Unsupervised branch
+    D1 --> H1[KMeans (simple clusters)]
+    D1 --> H2[DBSCAN / Hierarchical (complex clusters)]
+    D2 --> H3[PCA (reduce dimensions)]
+    D2 --> H4[t-SNE / UMAP (visualization)]
