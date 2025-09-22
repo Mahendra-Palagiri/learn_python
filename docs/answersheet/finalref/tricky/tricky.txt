@@ -1,0 +1,121 @@
+Week 1 — TRICKY (Reference Answers, Expanded with Examples)
+
+1) How does Python handle memory management?
+   - Reference counting: each object tracks how many references point to it; when refcount → 0, memory is reclaimed immediately.
+   - Cyclic GC: finds/unlinks unreachable cycles (e.g., two objects referencing each other).
+   - Private heap + PyMalloc: Python manages small-object allocation internally.
+   EX:
+     a = [1]; b = a
+     del a; del b  # refcount hits 0 → freed
+     # For cycles, gc.collect() can trigger a sweep.
+
+2) What are Python namespaces?
+   - Runtime mappings (dicts) of names→objects: built-in, global/module, local/function, class.
+   - Prevent name collisions and define lookup boundaries.
+   EX:
+     x = 10               # global namespace
+     def f(): y = 20      # local namespace inside f
+
+3) LEGB scope rule.
+   - Lookup order: Local → Enclosing → Global → Built-in.
+   EX:
+     x = "global"
+     def outer():
+         x = "enclosing"
+         def inner():
+             x = "local"
+             return x     # "local"
+         return inner()
+
+4) What is recursion?
+   - A function solves a problem by calling itself on a smaller input; must have a base case.
+   EX (factorial):
+     def fact(n):
+         if n == 0: return 1
+         return n * fact(n-1)
+
+5) Shallow vs deep copy.
+   - Shallow: new outer container; inner objects are shared references.
+   - Deep: recursively clones all nested objects (independent).
+   EX:
+     import copy
+     L = [[1,2],[3,4]]
+     S = copy.copy(L); D = copy.deepcopy(L)
+     S[0][0] = 99   # modifies L too
+     D[0][0] = 7    # L unchanged
+
+6) Python modules & importing.
+   - Module: any .py file. Import styles:
+     import math; import math as m; from math import sqrt
+   EX:
+     import statistics as stats
+     stats.mean([1,2,3])
+
+7) Creating a package.
+   - Directory with __init__.py and modules.
+   EX tree:
+     mypkg/
+       __init__.py
+       utils.py
+     from mypkg import utils
+
+8) Same-name functions.
+   - Same module: later definition overwrites earlier (rebinding).
+   - Different modules: no conflict; qualify with module name.
+   EX:
+     # module1.greet vs module2.greet; call module1.greet()
+
+9) Special (dunder) methods.
+   - Hooks that let objects integrate with Python syntax: __init__, __repr__, __str__, __len__, __eq__, __add__, __iter__, __next__, etc.
+   EX:
+     class Box:
+         def __init__(self, n): self.n = n
+         def __repr__(self): return f"Box({self.n!r})"
+         def __len__(self): return self.n
+
+10) __str__ vs __repr__.
+    - __str__: user-friendly string (print()).
+    - __repr__: unambiguous dev string (repr()), ideally valid code to recreate.
+    EX:
+      class Car:
+          def __str__(self): return "Tesla Model S"
+          def __repr__(self): return "Car('Tesla','Model S')"
+
+11) Public vs private attributes.
+    - Public: name; Protected (convention): _name; Private (name-mangled): __name → _Class__name.
+    - Python favors convention over strict enforcement.
+    EX:
+      class C:
+          def __init__(self):
+              self.a = 1      # public
+              self._b = 2     # protected (by convention)
+              self.__c = 3    # private (mangled)
+      C().__dict__  # {'a':1, '_b':2, '_C__c':3}
+
+12) Operator overloading.
+    - Implement dunders to support operators on custom classes.
+    EX:
+      class Vec:
+          def __init__(self,x,y): self.x,self.y=x,y
+          def __add__(self,o): return Vec(self.x+o.x, self.y+o.y)
+          def __repr__(self): return f"Vec({self.x},{self.y})"
+      Vec(1,2)+Vec(3,4)  # Vec(4,6)
+
+13) Dynamic typing.
+    - Variables are names bound to objects; types belong to objects, not names.
+    EX:
+      x = 5; x = "five"   # legal; x now references a str
+
+14) Circular references & GC.
+    - Refcount can’t collect cycles; cyclic GC identifies unreachable cycles and frees them.
+    EX:
+      import gc
+      gc.collect()
+
+15) id() vs hash().
+    - id(obj): unique identity (often memory address) during lifetime; exists for any object.
+    - hash(obj): integer fingerprint for hashable objects (used in dict/set). Must be consistent and is typically defined only for immutable types.
+    EX:
+      id([1,2])        # ok
+      hash((1,2,3))    # ok
+      hash([1,2])      # TypeError: unhashable type: 'list'

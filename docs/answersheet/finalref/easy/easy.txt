@@ -1,0 +1,109 @@
+Week 1 — EASY (Reference Answers, Expanded with Examples)
+
+1) What are Python’s basic data types?
+   - Built-ins: int, float, str, bool, NoneType
+   - Common collections: list, tuple, dict, set
+   - From modules: datetime.date / datetime (via datetime)
+   EX:
+     x = 42        # int
+     y = 3.14      # float
+     s = "hi"      # str
+     flag = True   # bool
+     items = [1,2] # list
+
+2) How do you declare variables in Python?
+   - Assign with = (dynamic typing; no type annotation required).
+   - Name binds to an object at runtime.
+   EX:
+     x = 10
+     x = "ten"   # legal; x now references a str
+
+3) How is input() used and how do you convert input to an integer?
+   - input() returns str; convert with int() / float().
+   EX:
+     age = int(input("Age: "))
+     price = float(input("Price: "))
+
+4) Difference between = and ==.
+   - = assigns a name to an object.
+   - == compares values for equality.
+   EX:
+     a = 5
+     b = 5
+     a == b     # True
+
+5) What is the purpose of comments in Python?
+   - Explain intent; ignored by interpreter.
+   - Single-line: # ... ; Docstrings: """...""" under functions/classes.
+   EX:
+     # compute total
+     def add(a, b):
+         """Return the sum of a and b."""
+         return a + b
+
+6) List vs Tuple.
+   - List: mutable sequence, [ ].
+   - Tuple: immutable sequence, ( ).
+   EX:
+     L = [1,2]; L.append(3)  # [1,2,3]
+     T = (1,2)               # cannot modify T[0]
+
+7) What is a dictionary?
+   - Mapping of key→value using { }.
+   EX:
+     user = {"name": "Mahi", "age": 30}
+     user["name"]  # "Mahi"
+
+8) Safe dictionary access.
+   - dict.get(key, default=None) avoids KeyError.
+   EX:
+     people = {"Alice": 25}
+     people.get("Bob")         # None
+     people.get("Bob", 0)      # 0
+
+9) print() vs return.
+   - print: sends text to console (for humans).
+   - return: sends value back to caller (for program logic).
+   EX:
+     def square(n): return n*n
+     print(square(4))  # prints 16
+
+10) Can a function return multiple values?
+    - Yes; by returning a tuple.
+    EX:
+      def minmax(nums): return min(nums), max(nums)
+      lo, hi = minmax([3,7,2])
+
+11) What is __init__?
+    - Constructor method run on instance creation; initialize attributes.
+    EX:
+      class Car:
+          def __init__(self, make): self.make = make
+
+12) How do you call a method from a class instance?
+    - obj.method(args)
+    EX:
+      car = Car("Tesla")
+      car.make
+
+13) Local vs global variables.
+    - Local: inside a function; Global: module level.
+    - Use global keyword to rebind a global inside a function.
+    EX:
+      x = 10
+      def f():
+          global x
+          x = 99
+
+14) Why is indentation important?
+    - Defines code blocks (if/for/def/class). Mandatory.
+    EX:
+      if True:
+          print("indented block")
+
+15) Mutable vs immutable objects.
+    - Mutable: can change in place (list, dict, set).
+    - Immutable: cannot change (int, float, str, tuple).
+    EX:
+      s = "hi"; s.replace("h","H")  # returns new string
+      L = [1,2]; L[0] = 9           # mutate in place

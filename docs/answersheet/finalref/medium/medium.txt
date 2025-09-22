@@ -1,0 +1,108 @@
+Week 1 — MEDIUM (Reference Answers, Expanded with Examples)
+
+1) Prime check (concept)
+   - n < 2 → not prime; 2 is prime; test divisors up to floor(sqrt(n)).
+   EX:
+     import math
+     def is_prime(n):
+         if n < 2: return False
+         if n % 2 == 0: return n == 2
+         for d in range(3, int(math.isqrt(n))+1, 2):
+             if n % d == 0: return False
+         return True
+
+2) Default arguments in functions.
+   - Defaults are evaluated once at definition time.
+   - Avoid mutable defaults; use None sentinel.
+   EX:
+     def append_safe(x, bucket=None):
+         if bucket is None: bucket = []
+         bucket.append(x)
+         return bucket
+
+3) Positional vs keyword arguments.
+   - Positional: order matters; Keyword: specify by name (orderless).
+   EX:
+     def greet(first, last): ...
+     greet("Ada", "Lovelace")          # positional
+     greet(last="Lovelace", first="Ada")  # keyword
+
+4) *args and **kwargs.
+   - *args: extra positional → tuple; **kwargs: extra named → dict.
+   EX:
+     def log(msg, *args, **kwargs):
+         print(msg, args, kwargs)
+     log("val", 1, 2, sep="|", end="!\n")
+
+5) Define a class in Python.
+   - class Name: define __init__ and methods with self.
+   EX:
+     class Counter:
+         def __init__(self): self.c = 0
+         def inc(self): self.c += 1
+
+6) Class attribute vs instance attribute.
+   - Class attr: shared; Instance attr: per object.
+   EX:
+     class Dog:
+         species = "Canine"       # class attr
+         def __init__(self, name):
+             self.name = name     # instance attr
+
+7) Method overriding.
+   - A subclass redefines a base class method (same signature).
+   EX:
+     class Animal:
+         def speak(self): return "..."
+     class Dog(Animal):
+         def speak(self): return "woof"
+
+8) Booleans in conditionals.
+   - Truthy: non-empty, non-zero; Falsy: 0, '', [], {}, None, False.
+   - Avoid == True/False; rely on truthiness.
+   EX:
+     items = []
+     if not items: print("empty")
+
+9) Function without return.
+   - Returns None implicitly.
+   EX:
+     def f(): pass
+     f() is None  # True
+
+10) Check variable type.
+    - Prefer isinstance(x, T) (supports inheritance).
+    EX:
+      isinstance(True, int)  # True; bool is subclass of int
+
+11) Reverse a list.
+    - nums[::-1], list(reversed(nums)), or in place nums.reverse().
+    EX:
+      nums = [1,2,3]
+      nums[::-1]       # [3,2,1]
+
+12) Remove by value vs by index.
+    - remove(value) removes first match; pop(index) removes at index (returns item).
+    EX:
+      L = ["a","b","c","b"]
+      L.remove("b")  # ["a","c","b"]
+      L.pop(1)       # removes "c"
+
+13) is vs ==.
+    - == value equality; is identity (same object).
+    EX:
+      a = [1]; b = [1]
+      a == b   # True
+      a is b   # False
+
+14) Handling NoneType.
+    - Use is None / is not None.
+    EX:
+      x = None
+      if x is None: ...
+
+15) String concatenation.
+    - "+", " ".join(seq) for many pieces, or f-strings for interpolation.
+    EX:
+      name, age = "Mahi", 30
+      f"Hello {name}, {age}"

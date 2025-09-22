@@ -1,0 +1,45 @@
+1.	How does Python handle memory management?
+2.	What are Python namespaces?
+3.	Explain the concept of scope with LEGB (Local, Enclosing, Global, Built-in).
+4.	What is recursion? Give an example.
+5.	Explain shallow copy vs deep copy with examples.
+6.	What are Python modules and how do you import them?
+7.	How do you create a package in Python?
+8.	What happens if two functions have the same name?
+9.	What are Python’s special methods (dunder methods)?
+10.	Explain how __str__ and __repr__ differ.
+11.	How do you define private vs public attributes in a class?
+12.	What is operator overloading in Python?
+13.	Explain Python’s dynamic typing.
+14.	How does Python’s garbage collector handle circular references?
+15.	What’s the difference between id() and hash()?
+
+1. Probably garbage collection similar to other programming languages?
+
+2. Python namespaces are grouped set of related functionalities accessed through a common name  
+
+3. Local. --> Local to the scope (method or class) , Global. --> available across teh module , No clue on Enclosing and Built-in
+
+4. A recursion is a program calling itself until a condition is met (example lets say you can divide a number by 2 and you have to get to a numer that is close to 0 you will have to take number divided by 2 take the new numer divide by 2 and so on until it is closed to 0 and recursive function do this until it arrives at desired values)
+
+5. there are methods for copy and deepycopy from copy module. Copy will do a shallow copy (only values probably) and deepycopy will copy values and a reference to original object
+
+6. pyton modules are set of classes and functions enclosed under one namesapce and exposed to be used for re utilizaiont ex : Import math as m 
+
+7. <Not sure<
+
+8. If two functions have same name the second method overwrites what is written in ffirt method
+
+9. <Never heard of them>
+
+10. <No Idea>
+
+11. by using access modifies public and private on class elements (variables/methods etc)
+
+12. operator overloading is a concept of an operator behaving or accomodating for multiple scenaros example  + can be used to add two numbers and can also be used for concetination of two strings
+
+13. when declaring variables in python we dont need to explicity mention the type and the type is typically infered from the assigned values
+
+14. <No clue>
+
+15.  <no clue>
