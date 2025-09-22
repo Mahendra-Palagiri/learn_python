@@ -1,0 +1,71 @@
+1.	Write a function that checks if a number is prime.
+2.	How do default arguments in functions work?
+3.	What’s the difference between positional and keyword arguments?
+4.	Explain *args and **kwargs.
+5.	How do you define a class in Python?
+6.	What’s the difference between a class attribute and an instance attribute?
+7.	What is method overriding in Python?
+8.	How does Python handle boolean values in conditionals?
+9.	What happens if you call a function without a return statement?
+10.	How can you check the type of a variable?
+11.	Write a function that reverses a list.
+12.	How do you remove an element from a list by value and by index?
+13.	What is the difference between is and ==?
+14.	How does Python handle NoneType?
+15.	What is string concatenation and how is it done?
+
+
+1. I know how to  (a number which is divisible by itself and not by any numbers less than that for example 3 divisible by itself and not 2 , 7 divisible by itself but none of the 2,3,4,5,6) --> I am not able to figure out how to write an effective method for it
+def isprime(num):
+    divisble = False
+    for i in range(2,num):
+        if num % i ==0 :
+            divisble = True
+            break
+
+    return 'Non-Prime' if divisble else 'Prime'
+
+print(isprime(int(input("Enter a number\n"))))
+
+2. Default arguments gets carried forwarded across a funciton calls example if d =[] is a default value for an argument then every time a value assigned to d will get forwarded to next call ex: If first call we set d as x and in second call d as y then current d values will be x,y.
+It is suggested to use None as default value to get aroudn this kind of issues
+
+3. A position argument in a method is the variable determined by its position in fucntion declaration (which means an user has to know what value he is passing for which function param i.e. order matters) where as keyword argument is readable and order doesnt matters
+
+4.  <Not sure>
+
+5. Class Myutility
+
+6. A class attribute is same across instances where as an instance attribute is specific to the value being intialized or passed for that instance
+
+7. A mehtod overriding is implementing diff functionaltiy for same method syntax ex: def mathoper(a,b) implementation can be a+b  / a-b .... 
+
+8. no need to explicity check for == True or  == False you can use soemthing like if x (considering x as true) ...
+
+9. The funtions behaves as if its a void method
+
+10. by using function type()
+
+11. 
+def reverse_list(nums):
+    revlist  = []
+    iterable = len(nums)
+    while iterable > 0:
+        revlist.append(nums[iterable-1])
+        iterable = iterable-1
+
+    return revlist
+
+nums  = [3,4,5,6,7]
+print(reverse_list(nums))
+
+12.
+mlist  = ['ra','ga','sa','ri']
+mlist.remove('ra')
+mlist.remove(mlist[1])
+
+13. is an ref comparison and  == value comparison
+
+14. its consider equal to Null in other languages 
+
+15. Combining more than one string value using arthmatic addition like. 'Hey' + ' There' gets printed as  'Hey There'

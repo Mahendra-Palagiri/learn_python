@@ -1,0 +1,31 @@
+1.	What are Python’s basic data types?
+2.	How do you declare variables in Python?
+3.	How is input() used and how do you convert input to an integer?
+4.	Difference between = and ==.
+5.	What is the purpose of comments in Python?
+6.	Explain the difference between a list and a tuple.
+7.	What is a dictionary in Python?
+8.	How do you access a value in a dictionary safely?
+9.	Difference between print() and return.
+10.	Can a function return multiple values? If yes, how?
+11.	What is __init__ in a class?
+12.	How do you call a method from a class instance?
+13.	Explain the scope of local vs global variables.
+14.	What is indentation and why is it important in Python?
+15.	What are mutable vs immutable objects?
+
+1. int,float,string,date,bool
+2. by using variable name something like x = 1
+3. input() is used when we want to capture user input and int() is used to convert the value to int (as by default the value type is string)
+4. = for assignment and == for comparison
+5. Comments will provide notes on what the action is for lookback and recall
+6. A list is mutable. (i.e. elements can be added or added) where as tuple is immutable (elements cannot be modified after initilizing)
+7. A dictinoary is a key value pair(s)
+8. by using get() method of dictionary object as get can return none if the key doesnt exists instead of throwing exception
+9. print()  --> prints the content of method and return  --> ussed in methods to retun back a tuple. (one or many values)
+10. Yes , ex : retun max(num),min(numb)
+11. __init__ acts as a constructor to the class 
+12. classinstance.method()
+13. global variables are available across the module where as lcoal variables are scope specific. (to a method or to a class etc)
+14. indentation is the space at the start of line. python interpreter uses the correct indentation for understanding the blocks properly
+15. A mutable object like lsit is something which can be modified where as immutable like tuple cannot be modified 
