@@ -161,64 +161,90 @@ A motivation to learn AI using Python
 
 ✅ Outcome: Gained foundational understanding of Python data structures and basic object-oriented programming.
 
-### 📑 Week 1 — Question Bank & Coding Challenges
+## 📑 Week 1 — Question Bank & Coding Challenges
 
-#### Easy Questions
-- What is a variable in Python? Give an example.
-- How do you print a message to the console?
-- What are the basic data types in Python?
-- How do you create a list and access its elements?
-- What is the difference between a list and a tuple?
-- How do you write a comment in Python?
-- What is the syntax for defining a function?
-- How do you take user input in Python?
-- Explain the use of `if` statements with an example.
-- How do you write a `for` loop to iterate over a list?
+### 🟢 Easy (15 Qs + 5 Mini Challenges)
 
-#### Easy Coding Challenges
-1. Write a program to print "Hello, World!".
-2. Create a list of five numbers and print each number using a loop.
-3. Write a function that takes two numbers and returns their sum.
-4. Take a user's name as input and greet them.
-5. Write a program to check if a number is even or odd.
+#### Questions
+1.	What are Python’s basic data types?
+2.	How do you declare variables in Python?
+3.	How is input() used and how do you convert input to an integer?
+4.	Difference between = and ==.
+5.	What is the purpose of comments in Python?
+6.	Explain the difference between a list and a tuple.
+7.	What is a dictionary in Python?
+8.	How do you access a value in a dictionary safely?
+9.	Difference between print() and return.
+10.	Can a function return multiple values? If yes, how?
+11.	What is __init__ in a class?
+12.	How do you call a method from a class instance?
+13.	Explain the scope of local vs global variables.
+14.	What is indentation and why is it important in Python?
+15.	What are mutable vs immutable objects?
 
-#### Medium Questions
-- What is the difference between `==` and `is` in Python?
-- How do you handle errors using try-except blocks?
-- Explain list comprehensions with an example.
-- What are dictionaries and how do you use them?
-- How do you define a class and create an object in Python?
-- Explain the difference between mutable and immutable types.
-- How do you use `elif` in conditional statements?
-- What is the purpose of the `return` statement in functions?
-- How do you iterate over keys and values in a dictionary?
-- What are Python modules and how do you import them?
+#### Mini Coding Challenges
+1.	Write a program that prints “Hello, World!”.
+2.	Ask the user for their name and age, and print a message back.
+3.	Write a program to find the largest of two numbers.
+4.	Swap two numbers without using a third variable.
+5.	Write a program that takes a number and prints whether it is even or odd.
 
-#### Medium Coding Challenges
-1. Write a function to find the largest number in a list.
-2. Create a dictionary mapping student names to their scores and print all names with scores above 80.
-3. Write a class `Rectangle` with attributes length and width and a method to calculate area.
-4. Use list comprehension to create a list of squares of numbers from 1 to 10.
-5. Write a program that counts the number of vowels in a given string.
+⸻------------------------------------------------------------------------------------
 
-#### Tricky Questions
-- Explain the difference between shallow copy and deep copy.
-- How does Python's garbage collection work?
-- What are decorators and how are they used?
-- Explain the `*args` and `**kwargs` syntax in functions.
-- What is the Global Interpreter Lock (GIL) in Python?
-- How do you manage memory in Python?
-- Explain generators and how they differ from iterators.
-- What are lambda functions and where would you use them?
-- How does Python handle variable scope?
-- What is list slicing and how does it work?
+### 🟡 Medium (15 Qs + 5 Mini Challenges)
 
-#### Tricky Coding Challenges
-1. Write a decorator that logs the execution time of a function.
-2. Implement a generator function to yield Fibonacci numbers up to n.
-3. Write a function using `*args` and `**kwargs` to accept any number of arguments and print them.
-4. Create a class with a class method and a static method and explain their differences.
-5. Write a program to flatten a nested list using recursion.
+#### Questions
+1.	Write a function that checks if a number is prime.
+2.	How do default arguments in functions work?
+3.	What’s the difference between positional and keyword arguments?
+4.	Explain *args and **kwargs.
+5.	How do you define a class in Python?
+6.	What’s the difference between a class attribute and an instance attribute?
+7.	What is method overriding in Python?
+8.	How does Python handle boolean values in conditionals?
+9.	What happens if you call a function without a return statement?
+10.	How can you check the type of a variable?
+11.	Write a function that reverses a list.
+12.	How do you remove an element from a list by value and by index?
+13.	What is the difference between is and ==?
+14.	How does Python handle NoneType?
+15.	What is string concatenation and how is it done?
+
+#### Mini Coding Challenges
+1.	Write a function to calculate factorial of a number.
+2.	Write a function that returns the sum of all elements in a list.
+3.	Write a program that prints the multiplication table of a number.
+4.	Write a function that checks if a word is a palindrome.
+5.	Implement a simple calculator with functions for add, subtract, multiply, divide.
+
+⸻------------------------------------------------------------------------------------
+
+### 🔴 Tricky (15 Qs + 5 Mini Challenges)
+
+#### Questions
+1.	How does Python handle memory management?
+2.	What are Python namespaces?
+3.	Explain the concept of scope with LEGB (Local, Enclosing, Global, Built-in).
+4.	What is recursion? Give an example.
+5.	Explain shallow copy vs deep copy with examples.
+6.	What are Python modules and how do you import them?
+7.	How do you create a package in Python?
+8.	What happens if two functions have the same name?
+9.	What are Python’s special methods (dunder methods)?
+10.	Explain how __str__ and __repr__ differ.
+11.	How do you define private vs public attributes in a class?
+12.	What is operator overloading in Python?
+13.	Explain Python’s dynamic typing.
+14.	How does Python’s garbage collector handle circular references?
+15.	What’s the difference between id() and hash()?
+
+#### Mini Coding Challenges
+1.	Write a recursive function to compute Fibonacci numbers.
+2.	Implement a class Rectangle with methods to compute area and perimeter.
+3.	Write a program that simulates a simple bank account (deposit, withdraw, balance).
+4.	Implement a function that removes duplicates from a list without using set().
+5.	Write a custom iterator class that yields squares of numbers up to N.
+
 
 </details>
 
@@ -353,64 +379,90 @@ A motivation to learn AI using Python
 
 ✅ Outcome: Able to create clear and informative data visualizations using popular Python libraries.
 
-### 📑 Week 2 — Question Bank & Coding Challenges
+## 📑 Week 2 — Question Bank & Coding Challenges
 
-#### Easy Questions
-- What is a NumPy array and how is it different from a Python list?
-- How do you create a NumPy array?
-- What is broadcasting in NumPy?
-- How do you select rows and columns in a Pandas DataFrame?
-- What is the difference between a Series and a DataFrame in Pandas?
-- How do you create a Pandas DataFrame from a dictionary?
-- How do you plot a simple bar chart using Matplotlib?
-- What is the purpose of `plt.show()` in Matplotlib?
-- How do you install and import Seaborn?
-- How do you filter a DataFrame based on a condition?
+### 🟢 Easy (15 Qs + 5 Mini Challenges)
 
-#### Easy Coding Challenges
-1. Create a NumPy array of numbers from 1 to 10 and print it.
-2. Create a Pandas DataFrame with columns "Name" and "Age" and print it.
-3. Plot a bar chart of the number of students in different classes using Matplotlib.
-4. Filter a DataFrame to show only rows where the score is above 80.
-5. Use Seaborn to create a histogram of a given dataset.
+#### Questions
+1.	What is a NumPy array and how is it different from a Python list?
+2.	How do you create a NumPy array?
+3.	What is broadcasting in NumPy?
+4.	How do you select rows and columns in a Pandas DataFrame?
+5.	What is the difference between a Series and a DataFrame in Pandas?
+6.	How do you create a Pandas DataFrame from a dictionary?
+7.	How do you plot a simple bar chart using Matplotlib?
+8.	What is the purpose of plt.show() in Matplotlib?
+9.	How do you install and import Seaborn?
+10.	How do you filter a DataFrame based on a condition?
+11.	What is the use of np.mean() and np.std()?
+12.	How do you transpose a NumPy 2D array?
+13.	What’s the difference between .loc[] and .iloc[] in Pandas (basic)?
+14.	What is a histogram used for in data visualization?
+15.	How do you save a Matplotlib plot as an image file?
 
-#### Medium Questions
-- Explain the difference between `np.split` and `np.array_split`.
-- How do you use `groupby` in Pandas and what is it used for?
-- What is a Boolean mask in Pandas and how is it applied?
-- How do you merge two DataFrames in Pandas?
-- What are some common aggregation functions used with `groupby`?
-- How do you handle missing data in Pandas?
-- Explain the difference between `loc` and `iloc` in Pandas.
-- How do you customize the color palette in Seaborn plots?
-- How do you save a Matplotlib plot to a file?
-- What is the difference between `plt.plot()` and `sns.lineplot()`?
+#### Mini Coding Challenges
+1.	Create a NumPy array of numbers from 1 to 10 and print it.
+2.	Create a Pandas DataFrame with columns “Name” and “Age” and print it.
+3.	Plot a bar chart of the number of students in different classes using Matplotlib.
+4.	Filter a DataFrame to show only rows where the score is above 80.
+5.	Use Seaborn to create a histogram of a given dataset.
 
-#### Medium Coding Challenges
-1. Write a function to compute the mean and standard deviation of a NumPy array.
-2. Group a DataFrame by a categorical column and compute the average of a numerical column.
-3. Merge two DataFrames on a common key and display the result.
-4. Create a scatter plot using Seaborn with custom colors and labels.
-5. Write a program to fill missing values in a DataFrame column with the column mean.
+⸻----------------------------------------------------------------------------------------------
 
-#### Tricky Questions
-- How does NumPy handle memory differently than Python lists?
-- What is the difference between views and copies in NumPy arrays?
-- Explain the concept of chaining assignments in Pandas and why it is discouraged.
-- How do you optimize Pandas operations for large datasets?
-- What are categorical data types in Pandas and why use them?
-- How does Seaborn integrate with Matplotlib under the hood?
-- Explain how pivot tables work in Pandas.
-- How do you create multi-index DataFrames and why are they useful?
-- What are some common pitfalls when working with date/time data in Pandas?
-- Explain the difference between wide and long data formats and how to convert between them.
+### 🟡 Medium (15 Qs + 5 Mini Challenges)
 
-#### Tricky Coding Challenges
-1. Write a function to efficiently flatten a multi-dimensional NumPy array.
-2. Create a Pandas pivot table to summarize data with multiple aggregation functions.
-3. Write a program to detect and handle outliers in a DataFrame column.
-4. Implement a custom Seaborn plot combining multiple plot types.
-5. Optimize a data processing pipeline using vectorized NumPy and Pandas operations.
+#### Questions
+1.	Explain the difference between np.split and np.array_split.
+2.	How do you use groupby in Pandas and what is it used for?
+3.	What is a Boolean mask in Pandas and how is it applied?
+4.	How do you merge two DataFrames in Pandas?
+5.	What are some common aggregation functions used with groupby?
+6.	How do you handle missing data in Pandas?
+7.	Explain the difference between loc and iloc in Pandas.
+8.	How do you customize the color palette in Seaborn plots?
+9.	How do you save a Matplotlib plot to a file?
+10.	What is the difference between plt.plot() and sns.lineplot()?
+11.	How do you apply multiple conditions to filter a DataFrame?
+12.	What is vectorization in NumPy and why is it faster?
+13.	How do you reset the index of a Pandas DataFrame?
+14.	Explain how .pivot() differs from .melt() in Pandas.
+15.	How do you add a calculated column in Pandas using np.where?
+
+#### Mini Coding Challenges
+1.	Write a function to compute the mean and standard deviation of a NumPy array.
+2.	Group a DataFrame by a categorical column and compute the average of a numerical column.
+3.	Merge two DataFrames on a common key and display the result.
+4.	Create a scatter plot using Seaborn with custom colors and labels.
+5.	Write a program to fill missing values in a DataFrame column with the column mean.
+
+⸻----------------------------------------------------------------------------------------------
+
+### 🔴 Tricky (15 Qs + 5 Mini Challenges)
+
+##### Questions
+1.	How does NumPy handle memory differently than Python lists?
+2.	What is the difference between views and copies in NumPy arrays?
+3.	Explain the concept of chaining assignments in Pandas and why it is discouraged.
+4.	How do you optimize Pandas operations for large datasets?
+5.	What are categorical data types in Pandas and why use them?
+6.	How does Seaborn integrate with Matplotlib under the hood?
+7.	Explain how pivot tables work in Pandas.
+8.	How do you create multi-index DataFrames and why are they useful?
+9.	What are some common pitfalls when working with date/time data in Pandas?
+10.	Explain the difference between wide and long data formats and how to convert between them.
+11.	How does broadcasting extend to multi-dimensional arrays?
+12.	What is the difference between apply(), map(), and applymap() in Pandas?
+13.	How does Pandas handle time zones in datetime objects?
+14.	Explain how np.vectorize works internally.
+15.	What are some best practices for visualizing large datasets?
+
+#### Mini Coding Challenges
+1.	Write a function to efficiently flatten a multi-dimensional NumPy array.
+2.	Create a Pandas pivot table to summarize data with multiple aggregation functions.
+3.	Write a program to detect and handle outliers in a DataFrame column.
+4.	Implement a custom Seaborn plot combining multiple plot types.
+5.	Optimize a data processing pipeline using vectorized NumPy and Pandas operations.
+
 
 </details>
 
