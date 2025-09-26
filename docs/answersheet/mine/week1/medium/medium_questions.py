@@ -24,11 +24,12 @@ def reverse_list(nums):
     return revlist
 
 nums  = [3,4,5,6,7]
+revnum = nums[::-1] # Simpler way of getting reverse
 print(reverse_list(nums))
 
 #Q. 12
 
 mlist  = ['ra','ga','sa','ri']
 mlist.remove('ra')
-mlist.remove(mlist[1])
+mlist.remove(mlist[1]) #mlist.pop(1) also does the same
 print(mlist)

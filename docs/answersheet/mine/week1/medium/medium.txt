@@ -44,7 +44,7 @@ It is suggested to use None as default value to get aroudn this kind of issues
 
 9. The funtions behaves as if its a void method
 
-10. by using function type()
+10. by using function type() the preferred one is  --> isinstance(True, int) #example to check for int type
 
 11. 
 def reverse_list(nums):
