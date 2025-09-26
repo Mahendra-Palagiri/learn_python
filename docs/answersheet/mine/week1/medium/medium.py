@@ -27,11 +27,11 @@ def print_multpltable(num):
 
 print_multpltable(7)
 
-#4. Write a program that prints the multiplication table of a number.
+#4. Write a function that checks if a word is a palindrome.
 import math as m
 
 def is_palindrome(val):
-    rangetocheck  = m.floor(len(val)/2)
+    rangetocheck  = m.floor(len(val)/2) # If odd number of characters then we dont need to verify the middle character
     palcheck = True
     for i in range(rangetocheck):
         if val[i] != val[len(val)-(i+1)]:
@@ -52,7 +52,7 @@ class mymath:
         self.a = a
         self.b = b
     
-    def add(self):
+    def add(self): 
         print (f"addtion of {self.a} and {self.b} = {self.a + self.b}")
 
     def substract(self):
