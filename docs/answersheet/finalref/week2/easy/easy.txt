@@ -1,0 +1,59 @@
+#### Questions
+
+1. What is a NumPy array and how is it different from a Python list?  
+   **Answer:** A NumPy array is a homogeneous, multidimensional container for numerical data. It differs from a Python list because NumPy arrays are fixed-type, optimized for numerical operations, and can be multi-dimensional. Python lists can hold mixed types but are less efficient.
+
+2. How do you create a NumPy array?  
+   **Answer:** Using `np.array([elements])`. You can also use functions like `np.zeros()`, `np.ones()`, `np.arange()`, or `np.linspace()`.
+
+3. What is broadcasting in NumPy?  
+   **Answer:** Broadcasting is NumPy’s way of applying arithmetic operations to arrays of different shapes by automatically expanding dimensions to match when possible.
+
+4. How do you select rows and columns in a Pandas DataFrame?  
+   **Answer:** Use `.iloc[]` for integer index and `.loc[]` for labels.  
+   Example: `df.iloc[0,0]` → first row, first column; `df.loc[0,"colname"]` → row 0, column "colname".
+
+5. What is the difference between a Series and a DataFrame in Pandas?  
+   **Answer:** A Series is a one-dimensional labeled array. A DataFrame is a two-dimensional table of multiple Series objects (columns) with labels.
+
+6. How do you create a Pandas DataFrame from a dictionary?  
+   **Answer:**  
+   ```python
+   import pandas as pd
+   df = pd.DataFrame({"col1": [1,2], "col2": [3,4]})
+   ```
+
+7. How do you plot a simple bar chart using Matplotlib?  
+   **Answer:**  
+   ```python
+   import matplotlib.pyplot as plt
+   plt.bar(["A","B","C"], [10,20,30])
+   plt.show()
+   ```
+
+8. What is the purpose of plt.show() in Matplotlib?  
+   **Answer:** It displays the plot window so the chart can be viewed.
+
+9. How do you install and import Seaborn?  
+   **Answer:** Install with `pip install seaborn`. Import using `import seaborn as sns`.
+
+10. How do you filter a DataFrame based on a condition?  
+    **Answer:**  
+    ```python
+    df[df["rank"] > 1]
+    ```
+
+11. What is the use of np.mean() and np.std()?  
+    **Answer:** `np.mean()` calculates the average, and `np.std()` calculates the standard deviation of an array.
+
+12. How do you transpose a NumPy 2D array?  
+    **Answer:** Use `arr.T` or `np.transpose(arr)`.
+
+13. What’s the difference between .loc[] and .iloc[] in Pandas (basic)?  
+    **Answer:** `.loc[]` selects rows/columns by labels. `.iloc[]` selects by integer positions.
+
+14. What is a histogram used for in data visualization?  
+    **Answer:** A histogram shows the frequency distribution of numeric data grouped into bins.
+
+15. How do you save a Matplotlib plot as an image file?  
+    **Answer:** Use `plt.savefig("filename.png")`.

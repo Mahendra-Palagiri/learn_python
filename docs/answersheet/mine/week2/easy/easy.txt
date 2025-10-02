@@ -1,0 +1,32 @@
+#### Questions
+1.	What is a NumPy array and how is it different from a Python list?
+2.	How do you create a NumPy array?
+3.	What is broadcasting in NumPy?
+4.	How do you select rows and columns in a Pandas DataFrame?
+5.	What is the difference between a Series and a DataFrame in Pandas?
+6.	How do you create a Pandas DataFrame from a dictionary?
+7.	How do you plot a simple bar chart using Matplotlib?
+8.	What is the purpose of plt.show() in Matplotlib?
+9.	How do you install and import Seaborn?
+10.	How do you filter a DataFrame based on a condition?
+11.	What is the use of np.mean() and np.std()?
+12.	How do you transpose a NumPy 2D array?
+13.	What’s the difference between .loc[] and .iloc[] in Pandas (basic)?
+14.	What is a histogram used for in data visualization?
+15.	How do you save a Matplotlib plot as an image file?
+
+1. Numpy array can be one dimensional or multip dimensional where as python list is a single dimensional array
+2. numpy.array([<array elements>])
+3. broadcasting in numpy is performing operation (addition/multiplication/substraction...) of numpy array elements from other value , variable or array
+4. pd.iloc[0:0]
+5. A series is a one dimensional array of elements and a dataframe is a dictionary array of elements
+6. pd.dataframe(dict)
+7. Matplotlib.bar()
+8. To present the output of the plot being constructed
+9. pip install seaborn , import seaborn as substraction
+10. df[filter] --> filter example df[rank>1]
+11. mean value of an array and standard deviation of an array
+12. T.transpose(2d array)
+13. .loc[] will give a value based on name wehre as iloc will give value based on index
+14. histogram is used present data in mean curve
+15. Dont know
