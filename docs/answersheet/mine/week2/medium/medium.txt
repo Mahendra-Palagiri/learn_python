@@ -1,0 +1,34 @@
+
+#### Questions
+1.	Explain the difference between np.split and np.array_split.
+2.	How do you use groupby in Pandas and what is it used for?
+3.	What is a Boolean mask in Pandas and how is it applied?
+4.	How do you merge two DataFrames in Pandas?
+5.	What are some common aggregation functions used with groupby?
+6.	How do you handle missing data in Pandas?
+7.	Explain the difference between loc and iloc in Pandas.
+8.	How do you customize the color palette in Seaborn plots?
+9.	How do you save a Matplotlib plot to a file?
+10.	What is the difference between plt.plot() and sns.lineplot()?
+11.	How do you apply multiple conditions to filter a DataFrame?
+12.	What is vectorization in NumPy and why is it faster?
+13.	How do you reset the index of a Pandas DataFrame?
+14.	Explain how .pivot() differs from .melt() in Pandas.
+15.	How do you add a calculated column in Pandas using np.where
+
+
+1. np.split will give an error if the array can be split into given number of sections where as np.array_split can split the array and arrange the remainign elemtns into last seciton. (asymetrcial)
+2. df.groupy(by='name', ascending=False)[Score] it is typically used to group a dataframe
+3. boolean mask is a filter and its based on a condition example score>80 etc and it can be applied like df[df['Score']>80]
+4. if we have two dataframes then df1.merge(df2,on='name',join='left')
+5. sum, mean, std 
+6. df.strip to remove missing values?
+7. loc is to get value by colname and iloc by index
+8. by using hue?
+9. plt.save
+10. plt.plot() will show the output and sns.lineplot() will present data as a line plot
+11. df[(score>80) & (subject=='math')]
+12. dont recall (probably answer is vecotorization is possible indexing of data)
+13. never tried
+14. pivot should change rows to columns and viceversa. Never used melt
+15. never worked on calculated columns
