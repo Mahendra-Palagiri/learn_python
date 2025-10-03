@@ -1,0 +1,55 @@
+1.	Explain the difference between np.split and np.array_split.
+Answer: np.split(a, n) raises ValueError unless len(a) is divisible by n. np.array_split(a, n) allows uneven chunks (last ones may differ by 1). 
+Example: np.array_split(np.arange(7), 3) → [array([0,1,2]), array([3,4]), array([5,6])]
+
+2.	How do you use groupby in Pandas and what is it used for?
+Answer: Groups rows by key(s) and aggregates within each group. 
+Example: df.groupby(‘Name’)[‘Score’].mean() or df.groupby(‘Team’).agg(Avg=(‘Score’,‘mean’), Cnt=(‘Score’,‘size’))
+	
+3.	What is a Boolean mask in Pandas and how is it applied?
+Answer: A boolean Series used to filter rows by condition. 
+Example: df[df[‘Score’] > 80] or df[(df[‘Score’] > 80) & (df[‘Subject’].eq(‘Math’))]	
+
+4.	How do you merge two DataFrames in Pandas?
+Answer: Use how=, not join=. 
+Example: df1.merge(df2, on=‘name’, how=‘left’) or pd.merge(df1, df2, on=‘name’, how=‘inner’)
+
+5.	What are some common aggregation functions used with groupby?
+Answer: sum, mean, median, min, max, count, size, std, var, nunique, first, last. 
+Example: df.groupby(‘Dept’).agg(Total=(‘Sales’,‘sum’), Avg=(‘Sales’,‘mean’), N=(‘Sales’,‘size’))
+
+6.	How do you handle missing data in Pandas?
+Answer: Drop or fill (impute) as needed. 
+Example: df.dropna(subset=[‘Score’]), df[‘Score’] = df[‘Score’].fillna(df[‘Score’].median()), or df.fillna({‘City’:‘Unknown’,‘Age’:0})
+
+7.	Explain the difference between loc and iloc in Pandas.
+Answer: loc[row_labels, col_labels] is label-based. iloc[row_idx, col_idx] is integer position-based.
+	
+8.	How do you customize the color palette in Seaborn plots?
+Answer: Use palette=, not hue=. 
+Example: sns.barplot(data=df, x=‘Team’, y=‘Score’, palette=‘pastel’) or sns.scatterplot(…, hue=‘Species’, palette={‘setosa’:‘red’,‘versicolor’:‘blue’,‘virginica’:‘green’})
+
+9.	How do you save a Matplotlib plot to a file?
+Answer: Use plt.savefig(‘plot.png’, dpi=200, bbox_inches=‘tight’)
+
+10.	What is the difference between plt.plot() and sns.lineplot()?
+Answer: plt.plot is low-level line drawing (arrays/Series). sns.lineplot is DataFrame-aware, supports data=, x=, y=, hue=, and can draw confidence intervals.
+
+11.	How do you apply multiple conditions to filter a DataFrame?
+Answer: Use boolean indexing with operators. 
+Example: df[(df[‘Score’] > 80) & (df[‘Subject’] == ‘Math’)]
+
+12.	What is vectorization in NumPy and why is it faster?
+Answer: Vectorization applies operations over entire arrays in compiled C (no Python loops), which makes it much faster. 
+Example: a = np.arange(1_000_000); a2 = a * 2
+
+13.	How do you reset the index of a Pandas DataFrame?
+Answer: Use df.reset_index(drop=True, inplace=True)
+
+14.	Explain how .pivot() differs from .melt() in Pandas.
+Answer: pivot turns long data into wide format (values become columns). melt turns wide data into long format (columns become rows). 
+Example: df.pivot(index=‘id’, columns=‘metric’, values=‘value’) and pd.melt(df, id_vars=[‘id’], var_name=‘metric’, value_name=‘value’)
+	
+15.	How do you add a calculated column in Pandas using np.where?
+Answer: Use np.where with a condition. 
+Example: df[‘Result’] = np.where(df[‘Score’] >= 75, ‘Pass’, ‘Fail’)
