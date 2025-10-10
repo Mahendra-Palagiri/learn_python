@@ -1,0 +1,18 @@
+##### Questions
+1.	How does NumPy handle memory differently than Python lists?
+2.	What is the difference between views and copies in NumPy arrays?
+3.	Explain the concept of chaining assignments in Pandas and why it is discouraged.
+4.	How do you optimize Pandas operations for large datasets?
+5.	What are categorical data types in Pandas and why use them?
+6.	How does Seaborn integrate with Matplotlib under the hood?
+7.	Explain how pivot tables work in Pandas.
+8.	How do you create multi-index DataFrames and why are they useful?
+9.	What are some common pitfalls when working with date/time data in Pandas?
+10.	Explain the difference between wide and long data formats and how to convert between them.
+11.	How does broadcasting extend to multi-dimensional arrays?
+12.	What is the difference between apply(), map(), and applymap() in Pandas?
+13.	How does Pandas handle time zones in datetime objects?
+14.	Explain how np.vectorize works internally.
+15.	What are some best practices for visualizing large datasets?
+
+6.	Seaborn uses matplotlib.pyplot for labeling, displaying etc
