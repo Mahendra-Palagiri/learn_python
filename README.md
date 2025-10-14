@@ -10,7 +10,7 @@ A motivation to learn AI using Python
 |-------|------|-------|------------------------|--------|------------------|
 | **1 – Python Foundations**  | Week 1 | Python basics | None (focus on syntax & logic) | ✅ Done| July 2025 |
 |       | Week 2 | NumPy, Pandas, Seaborn | Mean, median, variance, standard deviation | ✅ Done | Aug 2025 |
-| **2 – Data Analysis & Visualization**| Week 3 | Intro to ML workflow | Basic probability, correlation & covariance | 🔄 In Progress |  |
+| **2 – Data Analysis & Visualization**| Week 3 | Intro to ML workflow | Basic probability, correlation & covariance | ✅ Done | Oct 2025 |
 |       | Week 4 | Advanced Pandas & Viz | Grouped statistics, weighted averages | 📅 To Do |  |
 | **3 – ML Foundations**  | Week 5 | Classification deep dive | Logistic function, odds, log-odds | 📅 To Do |  |
 |       | Week 6 | Regression deep dive | Linear equations, least squares, RMSE formula | 📅 To Do |  |
@@ -28,6 +28,7 @@ A motivation to learn AI using Python
 |       | Week 18 | MLOps | None new | 📅 To Do |  |
 |       | Week 19–20 | Final capstone | Apply all math learned | 📅 To Do |  |
 
+🔄 In Progress
 </details>
 </br>
 
@@ -77,13 +78,13 @@ A motivation to learn AI using Python
 <summary>📙 Week 3: Introduction to Machine Learning workflow  </summary>
 <br/>
 
+- **Status**: ✅ Completed  
 - **Topics Planned**: 
 	- Data preprocessing 
 	- Scikit-learn intro using the Iris dataset
 	- K-Nearest Neighbors (KNN), train/test split, evaluation metrics (accuracy, classification report, confusion matrix), and cross-validation.
-- **Status**: 🚧 InProgress   
-- **Days Spent**: 2  
-- **Time Frame**: Aug & Sep 2025 
+- **Days Spent**: 10  
+- **Time Frame**: Sep & Oct 2025 
 - **Week3 Content -->**: [▶️ Week3](docs/curriculum/3.week3.md)
 
 </details>
