@@ -1,3 +1,4 @@
+# Week 3 - Day 6
 import pandas as pd
 import sklearn.datasets as skd
 from sklearn.neighbors import KNeighborsClassifier

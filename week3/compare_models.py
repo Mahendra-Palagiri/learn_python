@@ -1,3 +1,4 @@
+# Week 3 (Day 3)
 import numpy as np
 import pandas as pd
 import seaborn as sb
@@ -174,3 +175,68 @@ print("\n DecisionTreeClassifier report data with scaling  --> \n",dtscaledmodel
 #     accuracy                           0.93        30
 #    macro avg       0.93      0.93      0.93        30
 # weighted avg       0.93      0.93      0.93        30
+
+
+'''
+1. Explain the fundamentals of scaling  
+    * What is it
+    * Why is it required and 
+    * when is it good to use.  
+
+2. What is the significance of fit_transform vs transform when using scaler 
+3. Why does the model accuracy went down when using scaler 
+
+🔹 1. Fundamentals of Scaling
+
+What is scaling?
+Scaling means transforming your features so they’re on a comparable scale.
+Two common methods:
+	•	Standardization (StandardScaler) → subtract mean, divide by std → each feature has mean=0, std=1.
+	•	Normalization (MinMaxScaler) → rescale values to [0, 1] (or any fixed range).
+
+Why is it required?
+Many ML algorithms use distances or optimization methods that are sensitive to feature ranges.
+	•	If one feature has values in thousands (e.g., salary), and another is small (e.g., years of experience), the large one dominates the math.
+	•	Scaling puts all features on the same footing.
+
+When is it good to use?
+	•	KNN, KMeans, SVM → distance-based, scaling is essential.
+	•	Logistic Regression, Linear Regression → optimization converges faster and avoids bias from large-scale features.
+	•	Neural Networks → scaling helps gradients stabilize.
+	•	Decision Trees / Random Forests → don’t care (they split on thresholds, unaffected by scale).
+
+⸻
+
+🔹 2. fit_transform vs transform
+	•	fit_transform()
+        •	Learns the scaling parameters (mean, std, or min, max) from the dataset.
+        •	Then applies the scaling.
+        •	Example: X_train_scaled = scaler.fit_transform(X_train)
+    •	✅ Use this on training data only.
+	•	transform()
+        •	Uses the parameters already learned during fit.
+        •	Applies the same scaling to new data.
+        •	Example: X_test_scaled = scaler.transform(X_test)
+    •	✅ Use this on test data (or any future data).
+
+⚠️ If you accidentally do fit_transform on test data too, you leak information about the test set into training → invalid evaluation.
+
+⸻
+
+🔹 3. Why did model accuracy go down with scaling?
+
+A few possible reasons:
+	1.	KNN behavior changed
+        •	KNN is distance-based, so scaling can dramatically change nearest neighbors.
+        •	If the dataset already had features on comparable ranges (like Iris: petal lengths, widths), scaling might actually disturb natural separations.
+	2.	Model was already “happy” without scaling
+        •	Some datasets don’t benefit much from scaling because all features are naturally similar.
+    	•	Example: Iris dataset → all features are in cm, so not wildly different ranges.
+	3.	Random variation in small test set
+	    •	Iris test set is only ~30 samples → a few misclassifications change accuracy a lot.
+
+⸻
+
+✅ So, scaling is usually helpful, but it’s not a magic bullet.
+On Iris, you might see little gain or even a small drop because the dataset doesn’t really suffer from feature scale imbalance.
+'''

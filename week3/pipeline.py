@@ -1,3 +1,4 @@
+# Week 3 - Day 4
 import pandas as pd
 import matplotlib.pyplot as plt
 import sklearn.datasets as skd
@@ -8,8 +9,6 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score,classification_report,ConfusionMatrixDisplay
 from sklearn.preprocessing import StandardScaler
 from sklearn.pipeline import Pipeline
-
-
 
 
 iris  = skd.load_iris()
@@ -40,7 +39,7 @@ print("Report data --> \n",preport)
 
 ConfusionMatrixDisplay.from_estimator(pipeline,X_test,Y_test)
 plt.title("KNNPipleline")
-plt.show()
+# plt.show()
 
 
 #LogisticRegression with pipleine
@@ -58,7 +57,15 @@ print("LR Report data --> \n",lrpreport)
 
 ConfusionMatrixDisplay.from_estimator(lrpipeline,X_test,Y_test)
 plt.title("LRPipleline")
-plt.show()
+# plt.show()
+
+'''
+🔹 Feature Importance
+	•	Some models tell us which features matter most in prediction.
+	•	Decision Tree / Random Forest → model.feature_importances_.
+	•	Logistic Regression → coefficients (model.coef_).
+	•	KNN → no native feature importance (distance-based).
+'''
 
 #Get coefficients
 coefficients  = lrpipeline.named_steps["logregr"].coef_
@@ -81,7 +88,7 @@ print("DT Report data --> \n",dtreport)
 
 ConfusionMatrixDisplay.from_estimator(dt_pipeline,X_test,Y_test)
 plt.title("DecisionTreeClassifier")
-plt.show()
+# plt.show()
 
 feature_impt = dt_pipeline.named_steps["dt"].feature_importances_
 
@@ -91,3 +98,56 @@ feature_importance_dt = pd.DataFrame({
 }).sort_values(by="Importance", ascending=False)
 
 print("\n Decision tree feature Importance -->\n",feature_importance_dt)
+
+'''
+1. How do we know that we have to use coef_ for logistic regression and feature_names_ for decision tree 
+2. Why is the structure of dataframe consturcted differnetly for LogisticRegression vs DecisionTree
+
+🔹 Why coef_ for Logistic Regression?
+	•	Logistic Regression is a linear model.
+	•	Its decision rule is essentially:
+
+score_c = (w_1 x_1 + w_2 x_2 + … + w_n x_n + b)
+	•	The weights (w) are stored in .coef_.
+	•	Shape of .coef_:
+	•	For binary classification → (1, n_features)
+	•	For multi-class classification (Iris has 3 classes) → (n_classes, n_features)
+
+👉 That’s why we transpose it (.T) to align features as rows and classes as columns when making a DataFrame.
+
+⸻
+
+🔹 Why feature_importances_ for Decision Tree?
+	•	Decision Trees work by splitting data at thresholds (petal length ≤ 2.45).
+	•	Each split reduces impurity (gini or entropy).
+	•	The model tracks how much each feature contributes to reducing impurity.
+	•	This info is stored in .feature_importances_.
+	•	Shape of .feature_importances_: (n_features,) → just one importance score per feature.
+
+👉 That’s why the DataFrame is constructed as one column: Feature vs Importance.
+
+⸻
+
+🔹 Why the DataFrames are different
+	•	Logistic Regression → multi-class → each class gets its own weight per feature.
+	•	DataFrame needs feature names as rows, class labels as columns.
+	•	Decision Tree → one global measure per feature.
+	•	DataFrame just has two columns: Feature, Importance.
+
+⸻
+
+✅ Quick Visual
+
+Logistic Regression (coef_)
+            setosa  versicolor  virginica
+sepal len   0.12     -0.45       0.33
+sepal wid   0.02      0.10      -0.12
+...
+
+Decision Tree (feature_importances_)
+    Feature             Importance
+0   petal length (cm)   0.58
+1   petal width (cm)    0.30
+2   sepal length (cm)   0.09
+3   sepal width (cm)    0.03
+'''
