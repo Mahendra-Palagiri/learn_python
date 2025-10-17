@@ -11,7 +11,7 @@ A motivation to learn AI using Python
 | **1 – Python Foundations**  | Week 1 | Python basics | None (focus on syntax & logic) | ✅ Done| July 2025 |
 |       | Week 2 | NumPy, Pandas, Seaborn | Mean, median, variance, standard deviation | ✅ Done | Aug 2025 |
 | **2 – Data Analysis & Visualization**| Week 3 | Intro to ML workflow | Basic probability, correlation & covariance | ✅ Done | Oct 2025 |
-|       | Week 4 | Advanced Pandas & Viz | Grouped statistics, weighted averages | 📅 To Do |  |
+|       | Week 4 | Advanced Pandas & Viz | Grouped statistics, weighted averages | 🚧 InProgress |  |
 | **3 – ML Foundations**  | Week 5 | Classification deep dive | Logistic function, odds, log-odds | 📅 To Do |  |
 |       | Week 6 | Regression deep dive | Linear equations, least squares, RMSE formula | 📅 To Do |  |
 |       | Week 7 | Model selection & validation | Bias-variance tradeoff, cross-validation math | 📅 To Do |  |
@@ -28,7 +28,6 @@ A motivation to learn AI using Python
 |       | Week 18 | MLOps | None new | 📅 To Do |  |
 |       | Week 19–20 | Final capstone | Apply all math learned | 📅 To Do |  |
 
-🔄 In Progress
 </details>
 </br>
 
@@ -90,14 +89,37 @@ A motivation to learn AI using Python
 </details>
 ------------------------------------------------------------------------------------------------------------
 <details>
-<summary>📙 Week 4: Coming Soon</summary>
-<br/>
-- **Status**: 🚧 InProgress 
+<summary>📙 Week 4: Data Preprocessing & Intermediate Machine Learning</summary> 
 <br/>
 
-- **Topics Planned**: Data preprocessing, Scikit-learn intro  
-- **Status**: 🔜 Planned  
+- **Status**: 🚧 InProgress  
+- **Topics Planned**: 
+	- Handling Missing Data & Outliers 
+	- Encoding Categorical Data
+	- Feature Scaling & Transformation
+	- Feature Selection & Importance 
+	- Intermediate Models: Random Forests & SVM
+	- Model Evaluation Deep Dive
+- **Time Frame**: Oct 2025  
+- **Week4 Content -->**: [▶️ Week4](docs/curriculum/4.week4.md)
+
+</details>
+------------------------------------------------------------------------------------------------------------
+<details>
+<summary>📙 Week 5: Coming Soon</summary>
+<br/>
+- **Status**: 🔜 Planned 
+<br/>
+
+- **Topics Planned**: Classification deep dive | Logistic function, odds, log-odds  
+- **Status**:   
 - **Time Frame**: TBD  
 
 </details>
+
+
+🔜 Planned
+🚧 InProgress 
+✅ Completed 
+
 </details>
