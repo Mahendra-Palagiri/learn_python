@@ -214,3 +214,100 @@ print(iqroutliers.head())
 sns.boxenplot(x=datadf['Fare'])
 plt.table('Boxplot - Outlier Detection')
 plt.show()
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Hands-On Mini Exercise 🧠
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+'''
+Dataset: small Titanic sample (5 columns → Age, Fare, Embarked, Cabin, Survived).
+
+Tasks:
+	1.	Print missing-value count for each column.
+	2.	Impute missing values properly.
+	3.	Detect outliers in Fare and Age.
+	4.	Plot boxplots before and after cleaning.
+	5.	Reflect on:
+	•	Which columns had the most missing data?
+	•	Did imputation shift the average/median?
+	•	How many outliers were removed?
+'''
+
+titanicdf = pd.read_csv("./data/week4/titanic.csv")
+
+print("\n\n -- CHECKING MEAN , STD ON DATAFRAME ---- \n\n",titanicdf.describe())
+
+# M.1 Print Missing-value count for each column
+titanicmissingdata =pd.DataFrame({
+    'datatype' : titanicdf.dtypes,
+    'count' : len(titanicdf),
+    'Missing Values': titanicdf.isnull().sum(),
+    'Missing %': (titanicdf.isnull().sum() / len(titanicdf)) * 100
+}).sort_values(by='Missing %', ascending=False)
+
+print(titanicmissingdata)
+
+# M.4.4 a) Plot boxplots before cleaning
+fare_before = titanicdf['Fare'].copy()
+age_before = titanicdf['Age'].copy()
+
+sns.boxplot(data=titanicdf[['Fare','Age']])
+plt.title("Box plot before the cleaning")
+plt.show()
+
+
+# M.2 Impute missing values properly
+
+# Constants Impute
+tit_const_impt = SimpleImputer(strategy="constant",fill_value="unknown")
+titanicdf[['Cabin']] = tit_const_impt.fit_transform(titanicdf[['Cabin']] )
+
+# Numeric Impute
+tit_num_impt = SimpleImputer(strategy="mean")
+titanicdf[['Age']] = tit_num_impt.fit_transform(titanicdf[['Age']])
+titanicdf[['Fare']] = tit_num_impt.fit_transform(titanicdf[['Fare']])
+
+# Category Impute
+tit_cat_impt = SimpleImputer(strategy="most_frequent")
+titanicdf[['Embarked']] = tit_cat_impt.fit_transform(titanicdf[['Embarked']])
+
+titanicmissingdata =pd.DataFrame({
+    'datatype' : titanicdf.dtypes,
+    'count' : len(titanicdf),
+    'Missing Values': titanicdf.isnull().sum(),
+    'Missing %': (titanicdf.isnull().sum() / len(titanicdf)) * 100
+}).sort_values(by='Missing %', ascending=False)
+
+print(titanicmissingdata)
+
+# M.4.4 b) Plot boxplots after cleaning
+sns.boxplot(data=titanicdf[['Fare','Age']])
+plt.title("Box plot after the cleaning")
+plt.show()
+
+print("\n\n -- CHECKING MEAN , STD ON DATAFRAME  AFTER IMPUTATION---- \n\n",titanicdf.describe())
+
+# M.3 Detect outliers in Fare and Age
+tz_fare = np.abs(stats.zscore(titanicdf['Fare']))
+fareoutlier = titanicdf[tz_fare>3]
+print("\n\n ---- FARE OUTLIER ----- \n\n",fareoutlier.head())
+
+tz_age = np.abs(stats.zscore(titanicdf['Age']))
+ageoutlier = titanicdf[tz_age>3]
+print("\n\n ---- AGE OUTLIER ----- \n\n",ageoutlier.head())
+
+F_Q1 = titanicdf['Fare'].quantile(0.25)
+F_Q3 = titanicdf['Fare'].quantile(0.75)
+F_IQR = F_Q3-F_Q1
+f_filter = ((titanicdf['Fare'] < F_Q1-1.5 * F_IQR) | (titanicdf['Fare'] > F_Q3+1.5 * F_IQR))
+print("\n\n ---- FARE OUTLIER USING IQR ----- \n\n",titanicdf[f_filter])
+
+A_Q1 = titanicdf['Age'].quantile(0.25)
+A_Q3 = titanicdf['Age'].quantile(0.75)
+A_IQR = A_Q3-A_Q1
+a_filter = ((titanicdf['Age'] < A_Q1-1.5 * A_IQR) | (titanicdf['Age'] > F_Q3+1.5 * A_IQR))
+print("\n\n ---- AGE OUTLIER USING IQR ----- \n\n",titanicdf[a_filter])
+
+# 5.	Reflect on:
+# 	•	Which columns had the most missing data? --> Cabin (76%)
+# 	•	Did imputation shift the average/median? --> No as we have used mean for missing value ? (standard deviation shifted)
+# 	•	How many outliers were removed? (Cabin --> 82, Age --> 21, Fare-->6, Embarked--> 4)
