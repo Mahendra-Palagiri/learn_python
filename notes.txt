@@ -2,3 +2,4 @@
 ~~ To preview Readme.md in Vs code  on Mac  --> Command+Shift+V
 ~~ /Users/mahendrapalagiri/Documents/GitHub/learn_python/.venv/bin/python -m pip install seaborn
 ~~ brew install Graphviz  (using macos Termnial)
+~~ /Users/mahendrapalagiri/Documents/GitHub/learn_python/.venv/bin/python -m pip freeze > /Users/mahendrapalagiri/Documents/GitHub/learn_python/requirements.txt
