@@ -212,7 +212,7 @@ print(iqroutliers.head())
 
 # b) Outlier Visulaization
 sns.boxenplot(x=datadf['Fare'])
-plt.table('Boxplot - Outlier Detection')
+plt.title('Boxplot - Outlier Detection')
 plt.show()
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -284,6 +284,7 @@ sns.boxplot(data=titanicdf[['Fare','Age']])
 plt.title("Box plot after the cleaning")
 plt.show()
 
+
 print("\n\n -- CHECKING MEAN , STD ON DATAFRAME  AFTER IMPUTATION---- \n\n",titanicdf.describe())
 
 # M.3 Detect outliers in Fare and Age
@@ -304,10 +305,18 @@ print("\n\n ---- FARE OUTLIER USING IQR ----- \n\n",titanicdf[f_filter])
 A_Q1 = titanicdf['Age'].quantile(0.25)
 A_Q3 = titanicdf['Age'].quantile(0.75)
 A_IQR = A_Q3-A_Q1
-a_filter = ((titanicdf['Age'] < A_Q1-1.5 * A_IQR) | (titanicdf['Age'] > F_Q3+1.5 * A_IQR))
+a_filter = ((titanicdf['Age'] < A_Q1-1.5 * A_IQR) | (titanicdf['Age'] > A_Q3+1.5 * A_IQR))
 print("\n\n ---- AGE OUTLIER USING IQR ----- \n\n",titanicdf[a_filter])
 
 # 5.	Reflect on:
 # 	•	Which columns had the most missing data? --> Cabin (76%)
 # 	•	Did imputation shift the average/median? --> No as we have used mean for missing value ? (standard deviation shifted)
-# 	•	How many outliers were removed? (Cabin --> 82, Age --> 21, Fare-->6, Embarked--> 4)
+# 	•	How many outliers were removed? 
+fare_z = np.abs(stats.zscore(titanicdf['Fare']))
+age_z  = np.abs(stats.zscore(titanicdf['Age']))
+print("Z-score Fare outliers:", (fare_z > 3).sum())
+print("Z-score Age outliers :", (age_z  > 3).sum())
+
+# IQR counts
+print("IQR Fare outliers:", f_filter.sum())
+print("IQR Age outliers :", a_filter.sum())
