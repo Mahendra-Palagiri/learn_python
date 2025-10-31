@@ -5,7 +5,7 @@
 
 🎯 Learning Goals
 
-By the end of today, you’ll be able to:
+By the end of today, we’ll be able to:
 	1.	Explain why raw numeric features (e.g. Age, Fare, Income, etc.) can distort models if not scaled.
 	2.	Apply standardization and normalization using sklearn.preprocessing.
 	3.	Understand how scaling affects distance-based models (like KNN or clustering).
@@ -42,83 +42,142 @@ from sklearn.compose import ColumnTransformer
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# 1. Import the dataset
-titdf = pd.read_csv("./data/week4/titanic.csv")
-print("\n\n------ DATA FRAME INFO --------\n\n")
-print(titdf.info(),"\n\n")
+# # 1. Import the dataset
+# titdf = pd.read_csv("./data/week4/titanic.csv")
+# print("\n\n------ DATA FRAME INFO --------\n\n")
+# print(titdf.info(),"\n\n")
 
-# 2. Clean numeric columns
-num_cols = ['Fare','Age']
-filt_num_data = titdf[num_cols].dropna() # drop NaN for clean comparison
+# # 2. Clean numeric columns
+# num_cols = ['Fare','Age']
+# filt_num_data = titdf[num_cols].dropna() # drop NaN for clean comparison
 
-print("\n\n -- Min Fare --- > ",filt_num_data['Fare'].min())
-print("\n\n -- Max Fare --- > ",filt_num_data['Fare'].max())
-print("\n\n -- mean Fare --- > ",filt_num_data['Fare'].mean())
-print("\n\n -- median Fare --- > ",filt_num_data['Fare'].median())
-print("\n\n -- std deviation in Fare --- > ",filt_num_data['Fare'].std())
-print("\n\n -- Min Age --- > ",filt_num_data['Age'].min())
-print("\n\n -- Max Age --- > ",filt_num_data['Age'].max())
-print("\n\n -- mean Age --- > ",filt_num_data['Age'].mean())
-print("\n\n -- median Age --- > ",filt_num_data['Age'].median())
-print("\n\n -- std deviation in Age --- > ",filt_num_data['Age'].std())
+# print("\n\n -- Min Fare --- > ",filt_num_data['Fare'].min())
+# print("\n\n -- Max Fare --- > ",filt_num_data['Fare'].max())
+# print("\n\n -- mean Fare --- > ",filt_num_data['Fare'].mean())
+# print("\n\n -- median Fare --- > ",filt_num_data['Fare'].median())
+# print("\n\n -- std deviation in Fare --- > ",filt_num_data['Fare'].std())
+# print("\n\n -- Min Age --- > ",filt_num_data['Age'].min())
+# print("\n\n -- Max Age --- > ",filt_num_data['Age'].max())
+# print("\n\n -- mean Age --- > ",filt_num_data['Age'].mean())
+# print("\n\n -- median Age --- > ",filt_num_data['Age'].median())
+# print("\n\n -- std deviation in Age --- > ",filt_num_data['Age'].std())
 
-# 3. Initialize and set different scalers
-std_scaler = StandardScaler()
-minmax_scaler = MinMaxScaler()
-robust_scaler = RobustScaler()
+# # 3. Initialize and set different scalers
+# std_scaler = StandardScaler()
+# minmax_scaler = MinMaxScaler()
+# robust_scaler = RobustScaler()
 
-X_std = std_scaler.fit_transform(filt_num_data)
-X_minmax = minmax_scaler.fit_transform(filt_num_data)
-X_robust = robust_scaler.fit_transform(filt_num_data)
+# X_std = std_scaler.fit_transform(filt_num_data)
+# X_minmax = minmax_scaler.fit_transform(filt_num_data)
+# X_robust = robust_scaler.fit_transform(filt_num_data)
 
-# 4. Visualize data
-fig, axes = plt.subplots(1, 4, figsize=(15,5))
-sns.kdeplot(filt_num_data['Fare'], ax=axes[0], label='Original')
-sns.kdeplot(X_std[:,1], ax=axes[1], label='Standardized')
-sns.kdeplot(X_minmax[:,1], ax=axes[2], label='Normalized')
-sns.kdeplot(X_robust[:,1], ax=axes[3], label='Robust')
+# # 4. Visualize data
+# fig, axes = plt.subplots(1, 4, figsize=(15,5))
+# sns.kdeplot(filt_num_data['Fare'], ax=axes[0], label='Original')
+# sns.kdeplot(X_std[:,1], ax=axes[1], label='Standardized')
+# sns.kdeplot(X_minmax[:,1], ax=axes[2], label='Normalized')
+# sns.kdeplot(X_robust[:,1], ax=axes[3], label='Robust')
+# for ax in axes: ax.legend()
+# plt.show()
+
+# # 5. Optimized and Final Setup
+# y = titdf.loc[filt_num_data.index, 'Survived']
+# X = filt_num_data  # only ['Fare','Age'] with no NaNs
+
+# preprocess = ColumnTransformer(
+#     transformers=[
+#     ('age_scaler',StandardScaler(),['Age']),
+#     ('fare_scaler',RobustScaler(),['Fare'])
+# 	],
+#     remainder='drop'
+# )
+
+# final_pipe = Pipeline([
+#     ('prep', preprocess),
+#     ('clf',  LogisticRegression(max_iter=1000, random_state=42))
+# ])
+
+# final_pipe.fit(X, y)
+
+# # 1️⃣ Get only the preprocessing part from the pipeline
+# scaler = final_pipe.named_steps['prep']
+
+# # 2️⃣ Transform your original X data (Age & Fare)
+# X_scaled = scaler.transform(X)
+
+# # 3️⃣ Find out what columns came out of the scaler
+# col_names = scaler.get_feature_names_out()
+# print(col_names)
+# # Example output: ['age_scaler__Age', 'fare_scaler__Fare']
+
+# # 4️⃣ Turn the scaled NumPy array into a small DataFrame
+# X_scaled_df = pd.DataFrame(X_scaled, columns=col_names, index=X.index)
+
+# # 5️⃣ Plot using Seaborn
+# sns.kdeplot(x=X_scaled_df[col_names[0]], label='Age (scaled)')
+# sns.kdeplot(x=X_scaled_df[col_names[1]], label='Fare (scaled)')
+# plt.legend()
+# plt.title("KDE Plot of Scaled Features")
+# plt.show()
+
+'''
+	🧩 Mini Challenge
+
+	🧠 Apply StandardScaler and MinMaxScaler to both Age and Fare columns.
+	Compare:
+		•	Mean & std before and after scaling
+		•	Boxplot/KDE shape
+		•	How scaling affects outlier influence
+
+	Reflect:
+		•	Which scaler best preserved the data’s shape?
+		•	Would you use the same scaler for all models?
+
+
+'''
+
+df = pd.read_csv("./data/week4/titanic.csv")
+# print(df.info())
+# print(df.head(3))
+# print(df.describe(include='all'))
+
+filnumdata = df[['Age','Fare']].dropna()
+
+print("\n\n Fare mean and std deviation before scaling --> ",filnumdata['Fare'].mean(), "\t --- ", filnumdata['Fare'].std(),"\n\n")
+print("\n\n Age mean and std deviation before scaling --> ",filnumdata['Age'].mean(), "\t --- ", filnumdata['Age'].std(),"\n\n")
+
+stdscaler = StandardScaler()
+mmscaler = MinMaxScaler()
+
+xstd = stdscaler.fit_transform(filnumdata)
+
+# •	xstd[:, 0] → Age (scaled)
+# •	xstd[:, 1] → Fare (scaled)
+
+print("\n\n Fare mean and std deviation after Standard scaling --> ",xstd[:, 1].mean(), "\t --- ", xstd[:, 1].std(),"\n\n")
+print("\n\n Age mean and std deviation after Standard scaling --> ",xstd[:, 0].mean(), "\t --- ", xstd[:, 0].std(),"\n\n")
+
+xminmax = mmscaler.fit_transform(filnumdata)
+
+print("\n\n Fare mean and std deviation after MinMax scaling --> ",xminmax[:, 1].mean(), "\t --- ", xminmax[:, 1].std(),"\n\n")
+print("\n\n Age mean and std deviation after MinMax scaling --> ",xminmax[:, 0].mean(), "\t --- ", xminmax[:, 0].std(),"\n\n")
+
+# FARE
+fig, axes = plt.subplots(1, 3, figsize=(15,5))
+sns.kdeplot(filnumdata['Fare'], ax=axes[0], label='Original')
+sns.kdeplot(xstd[:,1], ax=axes[1], label='Standardized')
+sns.kdeplot(xminmax[:,1], ax=axes[2], label='Normalized')
 for ax in axes: ax.legend()
 plt.show()
 
-# 5. Optimized and Final Setup
-y = titdf.loc[filt_num_data.index, 'Survived']
-X = filt_num_data  # only ['Fare','Age'] with no NaNs
-
-preprocess = ColumnTransformer(
-    transformers=[
-    ('age_scaler',StandardScaler(),['Age']),
-    ('fare_scaler',RobustScaler(),['Fare'])
-	],
-    remainder='drop'
-)
-
-final_pipe = Pipeline([
-    ('prep', preprocess),
-    ('clf',  LogisticRegression(max_iter=1000, random_state=42))
-])
-
-final_pipe.fit(X, y)
-
-# 1️⃣ Get only the preprocessing part from the pipeline
-scaler = final_pipe.named_steps['prep']
-
-# 2️⃣ Transform your original X data (Age & Fare)
-X_scaled = scaler.transform(X)
-
-# 3️⃣ Find out what columns came out of the scaler
-col_names = scaler.get_feature_names_out()
-print(col_names)
-# Example output: ['age_scaler__Age', 'fare_scaler__Fare']
-
-# 4️⃣ Turn the scaled NumPy array into a small DataFrame
-X_scaled_df = pd.DataFrame(X_scaled, columns=col_names, index=X.index)
-
-# 5️⃣ Plot using Seaborn
-sns.kdeplot(x=X_scaled_df[col_names[0]], label='Age (scaled)')
-sns.kdeplot(x=X_scaled_df[col_names[1]], label='Fare (scaled)')
-plt.legend()
-plt.title("KDE Plot of Scaled Features")
+# AGE
+fig, axes = plt.subplots(1, 3, figsize=(15,5))
+sns.kdeplot(filnumdata['Age'], ax=axes[0], label='Original')
+sns.kdeplot(xstd[:,0], ax=axes[1], label='Standardized')
+sns.kdeplot(xminmax[:,0], ax=axes[2], label='Normalized')
+for ax in axes: ax.legend()
 plt.show()
+
 
 '''
 --------------------- RETROSPECTION --------------------
@@ -452,4 +511,165 @@ For our learning , we’re intentionally doing scaling on clean data first to:
 		👉 Use StandardScaler for Age.
 
     
+'''
+
+
+'''
+----------------------- DATA VISUALIZATION REF -------------------
+
+SEABORN + SLICING PLAYBOOK (Quick Reference)
+
+import pandas as pd, seaborn as sns, matplotlib.pyplot as plt
+df = pd.read_csv(”./data/week4/titanic.csv”)   # has Age, Fare, Embarked, Cabin, Survived, Pclass (if present)
+
+0) First 60 seconds: always do this
+
+	df.info()
+	df.head(3)
+	df.describe(include=“all”)
+	df[‘Embarked’].value_counts(dropna=False)
+    
+    
+
+1) Common slices (copy/paste patterns)
+
+numeric only
+
+	num = df[[‘Age’,‘Fare’]].dropna()
+
+	boolean filters
+
+	adults = df[df[‘Age’] >= 18]
+	cheap = df[df[‘Fare’] < 20]
+	survivors = df[df[‘Survived’] == 1]
+	q_port = df[df[‘Embarked’] == ‘Q’]
+
+	multiple conditions
+
+	adult_cheap = df[(df[‘Age’]>=18) & (df[‘Fare’]<20)]
+
+	select rows/cols
+
+	subset = df.loc[df[‘Embarked’].isin([‘S’,‘C’]), [‘Age’,‘Fare’,‘Embarked’,‘Survived’]]
+
+	long/melted view for multi-feature plots
+
+	m = df[[‘Age’,‘Fare’,‘Survived’]].melt(id_vars=‘Survived’, var_name=‘Feature’, value_name=‘Value’)
+    
+    
+
+2) What plot do I use? (mini decision tree)
+
+	Single numeric: sns.histplot or sns.kdeplot
+
+	Numeric vs numeric: sns.scatterplot (+ hue= a category)
+
+	Numeric by category: sns.boxplot, sns.violinplot, or sns.boxenplot
+
+	Category counts: sns.countplot
+
+	Before/after (e.g., scaling): combine melt + sns.kdeplot or side-by-side boxplot
+    
+    
+
+3) 10 plug-and-play recipes
+
+	A) Distribution of one numeric
+
+		sns.histplot(data=df, x=‘Fare’, bins=30)
+		plt.title(“Fare distribution”); plt.show()
+
+	B) KDE with missing dropped
+
+		sns.kdeplot(data=df, x=‘Age’, fill=True)
+		plt.title(“Age density”); plt.show()
+
+	C) Numeric by category (outliers pop!)
+
+		sns.boxplot(data=df, x=‘Embarked’, y=‘Fare’)
+		sns.stripplot(data=df, x=‘Embarked’, y=‘Fare’, alpha=0.5, color=‘k’, size=2)
+		plt.title(“Fare by Embarked”); plt.show()
+
+	D) Two numerics + category hue
+
+		sns.scatterplot(data=df, x=‘Age’, y=‘Fare’, hue=‘Survived’, alpha=0.7)
+		plt.title(“Age vs Fare colored by Survived”); plt.show()
+
+	E) Compare scaled vs unscaled (your Day-2 use case)
+
+		suppose you already made X_scaled_df with columns [‘age_scaler__Age’,‘fare_scaler__Fare’]
+
+		orig = df[[‘Age’,‘Fare’]].dropna().assign(Source=‘Original’)
+		scaled = pd.DataFrame(X_scaled_df.values, columns=[‘Age’,‘Fare’]).assign(Source=‘Scaled’)
+		both = pd.concat([orig, scaled], ignore_index=True)
+		sns.kdeplot(data=both, x=‘Age’, hue=‘Source’)
+		plt.title(“Age: original vs scaled”); plt.show()
+		sns.kdeplot(data=both, x=‘Fare’, hue=‘Source’)
+		plt.title(“Fare: original vs scaled”); plt.show()
+
+	F) Facets: same plot split by a category
+
+		g = sns.FacetGrid(df, col=‘Embarked’, col_wrap=3, height=3, sharex=False, sharey=False)
+		g.map_dataframe(sns.histplot, x=‘Fare’, bins=20)
+		g.fig.suptitle(“Fare by Embarked”, y=1.03); plt.show()
+
+	G) Before/after outlier capping
+
+		after you create df[‘Fare_capped’] = df[‘Fare’].clip(lower, upper)
+
+		m = df[[‘Fare’, ‘Fare_capped’]].melt(var_name=‘Version’, value_name=‘Value’)
+		sns.boxenplot(data=m, x=‘Version’, y=‘Value’)
+		plt.title(“Fare: original vs capped”); plt.show()
+
+	H) Quick missingness bar
+
+		na = df.isna().sum().reset_index().rename(columns={‘index’:‘col’,0:‘na’})
+		sns.barplot(data=na, x=‘na’, y=‘col’)
+		plt.title(“Missing values by column”); plt.show()
+
+	I) Log transform for skew (visual)
+
+		import numpy as np
+		sns.kdeplot(x=np.log1p(df[‘Fare’]), fill=True)
+		plt.title(“log1p(Fare)”); plt.show()
+
+	J) Heatmap of numeric correlations
+
+		sns.heatmap(df[[‘Age’,‘Fare’,‘Survived’]].corr(), annot=True, fmt=’.2f’, cmap=‘vlag’)
+		plt.title(“Correlation (numeric)”); plt.show()
+		
+    
+
+4) Typical “why is my plot blank / error?” fixes
+
+	NaNs: sns.*plot silently drops them. Use .dropna() on the columns you plot.
+
+	Wrong axis: For arrays from scalers (NumPy), use correct column index (X_std[:, 0] for Age if you fit on [Age, Fare]).
+
+	Dtypes: Categories must be object/category; numbers should be float/int.
+
+	df[‘Survived’] = df[‘Survived’].astype(‘category’)
+	df[‘Embarked’] = df[‘Embarked’].astype(‘category’)
+
+	Melt vs wide: If you want one axis to say “Feature” and another “Value”, you must melt first.
+
+5) Minimal styling that just works
+
+	sns.set_theme(context=“notebook”, style=“whitegrid”)
+	plt.tight_layout()
+
+6) Reusable helpers
+
+	def kde_compare(dfA, dfB, col, labels=(“A”,“B”), title=None):
+	sns.kdeplot(dfA[col].dropna(), label=labels[0])
+	sns.kdeplot(dfB[col].dropna(), label=labels[1])
+	plt.legend()
+	if title: plt.title(title)
+	plt.show()
+
+	def box_by_cat(df, y, x, title=None):
+	sns.boxplot(data=df, x=x, y=y)
+	sns.stripplot(data=df, x=x, y=y, color=‘k’, alpha=0.4, size=2)
+	if title: plt.title(title)
+	plt.show()
 '''

@@ -96,3 +96,11 @@ print(sdf)
 sns.boxenplot(x=sdf['Grade'])
 plt.title('GradeBoxPlot')
 plt.show()
+
+'''
+“What plot do I use?” (mini decision tree)
+	•	Single numeric: sns.histplot or sns.kdeplot
+	•	Numeric vs numeric: sns.scatterplot (+ hue= a category)
+	•	Numeric by category: sns.boxplot, sns.violinplot, or sns.boxenplot
+	•	Category counts: sns.countplot
+'''
