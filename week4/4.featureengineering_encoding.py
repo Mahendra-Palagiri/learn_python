@@ -76,10 +76,7 @@ print('\n\n ==== ACCURACY SCORE BEFORE AND AFTER ENCODING == \t',accuracy_score(
 
 
 
-
-
-
-'''
+'''. ----------------- RETROSPECTION -----------------------
     🧩 Categorical Columns in the Titanic Dataset
 
     Your dataset now contains both numeric and categorical features:
