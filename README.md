@@ -11,8 +11,8 @@ A motivation to learn AI using Python
 | **1 – Python Foundations**  | Week 1 | Python basics | None (focus on syntax & logic) | ✅ Done| July 2025 |
 |       | Week 2 | NumPy, Pandas, Seaborn | Mean, median, variance, standard deviation | ✅ Done | Aug 2025 |
 | **2 – Data Analysis & Visualization**| Week 3 | Intro to ML workflow | Basic probability, correlation & covariance | ✅ Done | Oct 2025 |
-|       | Week 4 | Advanced Pandas & Viz | Grouped statistics, weighted averages | 🚧 InProgress |  |
-| **3 – ML Foundations**  | Week 5 | Classification deep dive | Logistic function, odds, log-odds | 📅 To Do |  |
+|       | Week 4 | Advanced Pandas & Viz | Grouped statistics, weighted averages | ✅ Done | Nov 2025 |
+| **3 – ML Foundations**  | Week 5 | Classification deep dive | Logistic function, odds, log-odds | 🚧 InProgress  |  |
 |       | Week 6 | Regression deep dive | Linear equations, least squares, RMSE formula | 📅 To Do |  |
 |       | Week 7 | Model selection & validation | Bias-variance tradeoff, cross-validation math | 📅 To Do |  |
 |       | Week 8 | Mini capstone | Consolidation of above | 📅 To Do |  |
@@ -42,7 +42,7 @@ A motivation to learn AI using Python
 
 
 <details>
-<summary>📘 Week 1: Python Basics</summary>
+<summary>✅ 📘 Week 1: Python Basics</summary>
 <br/>
 
 - **Status**: ✅ Completed
@@ -58,7 +58,7 @@ A motivation to learn AI using Python
 </details>
 ------------------------------------------------------------------------------------------------------------
 <details>
-<summary>📗 Week 2: NumPy, Pandas, Data Viz</summary>
+<summary>✅ 📘  Week 2: NumPy, Pandas, Data Viz</summary>
 <br/>
 
 - **Status**: ✅ Completed  
@@ -74,7 +74,7 @@ A motivation to learn AI using Python
 </details>
 ------------------------------------------------------------------------------------------------------------
 <details>
-<summary>📙 Week 3: Introduction to Machine Learning workflow  </summary>
+<summary>✅ 📗 Week 3: Introduction to Machine Learning workflow  </summary>
 <br/>
 
 - **Status**: ✅ Completed  
@@ -89,10 +89,10 @@ A motivation to learn AI using Python
 </details>
 ------------------------------------------------------------------------------------------------------------
 <details>
-<summary>📙 Week 4: Data Preprocessing & Intermediate Machine Learning</summary> 
+<summary>✅ 📗 Week 4: Data Preprocessing & Intermediate Machine Learning</summary> 
 <br/>
 
-- **Status**: 🚧 InProgress  
+- **Status**: ✅ Completed    
 - **Topics Planned**: 
 	- Handling Missing Data & Outliers 
 	- Encoding Categorical Data
@@ -100,23 +100,32 @@ A motivation to learn AI using Python
 	- Feature Selection & Importance 
 	- Intermediate Models: Random Forests & SVM
 	- Model Evaluation Deep Dive
-- **Time Frame**: Oct 2025  
+- **Time Frame**: Oct & Nov 2025  
 - **Week4 Content -->**: [▶️ Week4](docs/curriculum/4.week4.md)
 
 </details>
 ------------------------------------------------------------------------------------------------------------
 <details>
-<summary>📙 Week 5: Coming Soon</summary>
-<br/>
-- **Status**: 🔜 Planned 
+<summary>🚧 📙 Week 5: Classification Deep Dive </summary>
 <br/>
 
-- **Topics Planned**: Classification deep dive | Logistic function, odds, log-odds  
-- **Status**:   
-- **Time Frame**: TBD  
+- **Status**: 🚧 In Progress  
+- **Topics Covered**:
+    - Logistic Regression Fundamentals
+    - Sigmoid Function, Odds & Log-Odds
+    - Model Training & Coefficients Interpretation
+    - Classification Metrics: Precision, Recall, F1, Specificity
+    - Probability Thresholding, ROC Curve, AUC
+    - Regularization: L1 & L2
+    - Hyperparameter Tuning (GridSearchCV, RandomizedSearchCV)
+- **Time Frame**: Nov & Dec 2025  
+- **Week5 Content -->**: [▶️ Week5](docs/curriculum/5.week5.md)
 
 </details>
 
+
+
+<br/>
 
 🔜 Planned
 🚧 InProgress 
