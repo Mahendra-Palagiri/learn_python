@@ -102,6 +102,7 @@ import numpy as np
 
 
 titdf = pd.read_csv('./data/week5/titanic_synthetic.csv')
+# print("\n\n --> \n",titdf.head(5))
 # print("\n\n --> \n",titdf.info())
 # print("\n\n --> \n",titdf.describe(include='all'))
 
@@ -118,5 +119,7 @@ plt.xlabel("z")
 plt.ylabel("Probability")
 plt.grid(True)
 plt.show()
+
+print(sigmoid(1.2)) #Randomly checking the probabiliy for a number
 
 
