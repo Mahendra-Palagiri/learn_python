@@ -1,7 +1,7 @@
 '''. ---- Week 5 — Day 2: Training & Interpreting Logistic Regression ----
 🎯 Learning Goal
 
-By the end of today you will be able to:
+By the end of today we  will be able to:
 	•	Build a preprocessing + logistic regression pipeline
 	•	Train a model on your synthetic dataset
 	•	Extract and interpret coefficients
