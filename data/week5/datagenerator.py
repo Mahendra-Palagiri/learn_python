@@ -46,23 +46,23 @@ def generate_titanic_like(n_rows=10000, random_state=42):
     is_female = (sex == "female").astype(float)
     embarked_C = (embarked == "C").astype(float)
 
-    # Coefficients chosen to give intuitive behavior:
-    b0 = -2.0           # base survival is low
-    b_age = -0.02       # older age → slightly lower survival
-    b_fare = 0.01       # higher fare → higher survival
-    b_female = 1.5      # females have much higher survival odds
-    b_embC = 0.5        # C embarkation slightly better
+   # --- Stronger, teaching-friendly survival model ---
+    b0 = -0.66            # raises base survival rate (~45–50%)
+    b_age = -0.03        # clearer age penalty
+    b_fare = 0.04        # stronger fare signal
+    b_female = 1.2       # still strong, but not overwhelming
+    b_embC = 0.6         # clear Embarked=C benefit
 
     # For missing Age/Fare, temporarily fill with reasonable defaults for generating p
     age_for_model = np.where(np.isnan(age), 30, age)
     fare_for_model = np.where(np.isnan(fare), 30, fare)
 
     logit_p = (
-        b0
-        + b_age * age_for_model
-        + b_fare * (fare_for_model / 10.0)  # scale fare effect down a bit
-        + b_female * is_female
-        + b_embC * embarked_C
+    b0
+    + b_age * (age_for_model / 10)      # normalize age
+    + b_fare * (fare_for_model / 50)    # normalize fare
+    + b_female * is_female
+    + b_embC * embarked_C
     )
 
     def sigmoid(z):
@@ -97,3 +97,4 @@ if __name__ == "__main__":
     print(f"Saved synthetic dataset to: {out_path}")
     print(df.head())
     print(df['Survived'].value_counts(normalize=True))
+    print(df['Survived'].mean())
