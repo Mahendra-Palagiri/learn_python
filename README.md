@@ -12,8 +12,8 @@ A motivation to learn AI using Python
 |       | Week 2 | NumPy, Pandas, Seaborn | Mean, median, variance, standard deviation | ✅ Done | Aug 2025 |
 | **2 – Data Analysis & Visualization**| Week 3 | Intro to ML workflow | Basic probability, correlation & covariance | ✅ Done | Oct 2025 |
 |       | Week 4 | Advanced Pandas & Viz | Grouped statistics, weighted averages | ✅ Done | Nov 2025 |
-| **3 – ML Foundations**  | Week 5 | Classification deep dive | Logistic function, odds, log-odds | 🚧 InProgress  |  |
-|       | Week 6 | Regression deep dive | Linear equations, least squares, RMSE formula | 📅 To Do |  |
+| **3 – ML Foundations**  | Week 5 | Classification deep dive | Logistic function, odds, log-odds | ✅ Done | Dec 2025 |
+|       | Week 6 | Regression deep dive | Linear equations, least squares, RMSE formula | 🚧 InProgress  |  |
 |       | Week 7 | Model selection & validation | Bias-variance tradeoff, cross-validation math | 📅 To Do |  |
 |       | Week 8 | Mini capstone | Consolidation of above | 📅 To Do |  |
 | **4 – Deep Learning Foundations**  | Week 9 | Neural networks basics | Derivatives, chain rule, gradient descent math | 📅 To Do |  |
@@ -106,10 +106,10 @@ A motivation to learn AI using Python
 </details>
 ------------------------------------------------------------------------------------------------------------
 <details>
-<summary>🚧 📙 Week 5: Classification Deep Dive </summary>
+<summary>✅ 📙 Week 5: Classification Deep Dive </summary>
 <br/>
 
-- **Status**: 🚧 In Progress  
+- **Status**: ✅ Completed     
 - **Topics Covered**:
     - Logistic Regression Fundamentals
     - Sigmoid Function, Odds & Log-Odds
@@ -123,7 +123,27 @@ A motivation to learn AI using Python
 
 </details>
 
+------------------------------------------------------------------------------------------------------------
+<details>
+<summary>🚧 📙 Week 6: Regression Deep Dive </summary>
+<br/>
 
+- **Status**: 🚧 In Progress  
+- **Topics Covered**:
+    - Regression from scratch (linear model, prediction : y_hat = w*x + b, MSE, gradient descent)
+    - Baseline regression + correct train/validation/test workflow
+    - Metrics deep dive: MAE, MSE, RMSE, R^2 + residual sanity checks
+    - Statsmodels OLS: coefficients, confidence intervals, p-values, adjusted R^2
+    - Diagnostics: residual plots, non-linearity, heteroskedasticity patterns
+    - Outliers & influence: leverage, Cook’s distance
+    - Multicollinearity checks: correlation + VIF
+    - Fixes: log transforms, interactions, polynomial features
+    - Regularization + CV: Ridge, Lasso, Elastic Net (stability + tradeoffs)
+    - Capstone: end-to-end regression workflow + model defense write-up
+- **Time Frame**: Dec 2025  
+- **Week6 Content -->**: [▶️ Week6](docs/curriculum/6.week6.md)
+
+</details>
 
 <br/>
 
