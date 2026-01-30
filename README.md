@@ -13,8 +13,8 @@ A motivation to learn AI using Python
 | **2 – Data Analysis & Visualization**| Week 3 | Intro to ML workflow | Basic probability, correlation & covariance | ✅ Done | Oct 2025 |
 |       | Week 4 | Advanced Pandas & Viz | Grouped statistics, weighted averages | ✅ Done | Nov 2025 |
 | **3 – ML Foundations**  | Week 5 | Classification deep dive | Logistic function, odds, log-odds | ✅ Done | Dec 2025 |
-|       | Week 6 | Regression deep dive | Linear equations, least squares, RMSE formula | 🚧 InProgress  |  |
-|       | Week 7 | Model selection & validation | Bias-variance tradeoff, cross-validation math | 📅 To Do |  |
+|       | Week 6 | Regression deep dive | Linear equations, least squares, RMSE formula | ✅ Done   | Jan 2026 |
+|       | Week 7 | Model selection & validation | Bias-variance tradeoff, cross-validation math | 🚧 InProgress |  |
 |       | Week 8 | Mini capstone | Consolidation of above | 📅 To Do |  |
 | **4 – Deep Learning Foundations**  | Week 9 | Neural networks basics | Derivatives, chain rule, gradient descent math | 📅 To Do |  |
 |       | Week 10 | PyTorch basics | Matrix multiplication, dot products | 📅 To Do |  |
@@ -125,10 +125,10 @@ A motivation to learn AI using Python
 
 ------------------------------------------------------------------------------------------------------------
 <details>
-<summary>🚧 📙 Week 6: Regression Deep Dive </summary>
+<summary> ✅  📙 Week 6: Regression Deep Dive </summary>
 <br/>
 
-- **Status**: 🚧 In Progress  
+- **Status**: ✅ Completed  
 - **Topics Covered**:
     - Regression from scratch (linear model, prediction : y_hat = w*x + b, MSE, gradient descent)
     - Baseline regression + correct train/validation/test workflow
@@ -140,8 +140,41 @@ A motivation to learn AI using Python
     - Fixes: log transforms, interactions, polynomial features
     - Regularization + CV: Ridge, Lasso, Elastic Net (stability + tradeoffs)
     - Capstone: end-to-end regression workflow + model defense write-up
-- **Time Frame**: Dec 2025  
+- **Time Frame**: Dec 2025  & Jan 2026
 - **Week6 Content -->**: [▶️ Week6](docs/curriculum/6.week6.md)
+
+</details>
+
+
+------------------------------------------------------------------------------------------------------------
+<details>
+<summary>🚧 📙 Week 7: Model Selection & Validation </summary>
+<br/>
+
+- **Status**: 🚧 In Progress  
+- **Topics Planned**:
+    - Model selection vs model assessment (what you tune vs what you report)
+    - Bias–variance tradeoff (intuition + practical symptoms: underfit/overfit)
+    - Proper data splitting patterns (train/validation/test) and avoiding leakage
+    - Cross-validation deep dive:
+        - k-fold CV mechanics + why it works
+        - Stratified k-fold (classification) and why imbalance breaks naive CV
+        - Repeated CV and what it improves
+        - Nested CV (honest performance when doing hyperparameter tuning)
+        - Time-series split (why random shuffles can lie)
+    - Hyperparameter tuning with CV:
+        - GridSearchCV vs RandomizedSearchCV
+        - Using Pipelines so preprocessing happens *inside* CV folds
+    - Model comparison workflow:
+        - picking the right metric (and why accuracy is a trap sometimes)
+        - baseline vs candidate models, learning curves for diagnosis
+        - interpreting CV mean vs variance (stability)
+    - Cross-validation math (lightweight but real):
+        - what “CV estimate of generalization error” means
+        - variance/uncertainty intuition (why folds give a distribution)
+
+- **Time Frame**: Feb 2026  
+- **Week7 Content -->**: [▶️ Week7](docs/curriculum/7.week7.md)
 
 </details>
 
