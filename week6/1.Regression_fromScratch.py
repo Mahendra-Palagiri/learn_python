@@ -1075,3 +1075,31 @@ So your earlier experiments were basically:
 
 learning-rate tuning, but in disguise.
 '''
+
+
+#=========================================================
+# Summarization in simple words
+#=========================================================
+
+'''
+    We built a simple regression model: y^ = w x + b. 
+    For each point, we computed the error e = y^ - y, 
+    
+    then measured overall model quality using Mean Squared Error (MSE) 
+    The reason we chose MSE is so errors don’t cancel out and large errors are penalized more. 
+    
+    Our goal was to adjust w (tilt/slope) and b (shift/intercept) to minimize MSE. 
+    
+    We first tried changing w and b using coarse integer step sizes and saw unstable behavior 
+        sometimes both improved
+        sometimes both worsened
+        sometimes one improved while the other worsened
+        
+    We reduced the step size to decimals to make updates smoother. 
+    
+    Finally, we used gradients to update parameters in the correct direction: 
+    dw ≈ 2 * mean(error * x) and 
+    db ≈ 2 * mean(error)
+    which produced smoother and more reliable improvement than manual stepping
+
+'''

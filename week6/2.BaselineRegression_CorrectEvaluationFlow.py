@@ -70,7 +70,7 @@ print("R2 \t:",r2_base)
 '''
 Interpretation:
 	•	R² baseline can be ~0 or negative. That’s fine.
-	•	wer model must beat this baseline to be worth anything
+	•	our model must beat this baseline to be worth anything
 '''
 
 # 4️⃣ ~~~~ Introducing LinearRegression ~~~~
@@ -243,4 +243,19 @@ Q) whey do we create this array for baseline. --> y_pred_baseline_val = np.full(
             •	training split only (to avoid peeking)
 
         We avoid using validation/test to set the baseline because that would leak information.
+'''
+
+#=========================================================
+# Summarization in simple words
+#=========================================================
+'''
+    We used the California Housing dataset and split it into training, validation, and test sets to keep evaluation honest. 
+    
+    We defined a baseline model by predicting a constant value for every row: the mean of y_train. 
+    We created a prediction array for the validation set filled with this mean and computed metrics (MAE, RMSE, R²). 
+    
+    Then we trained a LinearRegression model on the training set, evaluated it on the validation set, and confirmed it beat the baseline (better MAE/RMSE and higher R²). 
+    
+    Finally, we evaluated the trained LinearRegression on the test set and again confirmed it performed better than the baseline, 
+    showing the model’s improvement wasn’t just overfitting to training/validation.
 '''

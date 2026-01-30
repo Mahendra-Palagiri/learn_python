@@ -26,6 +26,7 @@ import numpy as np
 from sklearn.datasets import fetch_california_housing
 from sklearn.model_selection import train_test_split
 import statsmodels.api as sm
+from statsmodels.stats.outliers_influence import variance_inflation_factor
 
 # 1️⃣ ~~ Fetch Dataset 
 cfhdf = fetch_california_housing(as_frame=True).frame
@@ -209,6 +210,75 @@ for f in ["MedInc", "HouseAge", "AveRooms"]:
 # 	•	correlated features can make p-values misleading
 # 	•	huge datasets can make tiny effects “statistically significant” but practically small
 
+# 7️⃣ ~~~ Multicollinearity (why coefficients can look weird)
+#
+# What is multicollinearity?
+#   • It happens when 2+ input features carry overlapping information (they move together).
+#   • Example from our dataset: AveRooms and AveBedrms are strongly correlated.
+#
+# Why do we care?
+#   • OLS can still predict reasonably well, but individual coefficients become unstable.
+#   • Signs can flip (a feature can look negative even if intuition says positive).
+#   • Standard errors can inflate → p-values / confidence intervals can be misleading.
+#
+# Where did we see hints of it today?
+#   • In the OLS summary, the "Cond. No." (condition number) was large (~2.4e+05).
+#     Statsmodels warns that this can indicate multicollinearity or numerical issues.
+#   • In our correlation check (from discussion), AveRooms ↔ AveBedrms correlation was high.
+#
+# Intuition (plain language):
+#   If two features are telling the model almost the same story, the model has many different
+#   ways to split “credit” between them. That makes the exact coefficient values wobbly.
+#
+# What to do about it (high level):
+#   1) Diagnose (correlation + VIF)
+#   2) Reduce overlap (drop/merge features, domain-driven feature engineering)
+#   3) Regularize (Ridge) if we want stability
+
+RUN_MULTICOLLINEARITY_CHECK = True  # set False if we want to skip these prints
+
+if RUN_MULTICOLLINEARITY_CHECK:
+    print("\n================ Multicollinearity quick check ================")
+
+    # (A) Correlation: quick scan for highly correlated feature pairs
+    corr = X_train.corr(numeric_only=True).abs()
+
+    # Show top correlated pairs (excluding self-correlation on the diagonal)
+    corr_pairs = (
+        corr.where(np.triu(np.ones(corr.shape), k=1).astype(bool))
+            .stack()
+            .sort_values(ascending=False)
+    )
+
+    print("\nTop correlated feature pairs (absolute correlation):")
+    print(corr_pairs.head(10))
+
+    # (B) VIF (Variance Inflation Factor): how much a feature is explained by other features
+    # Rule of thumb (not absolute):
+    #   • VIF ~ 1  : no multicollinearity
+    #   • VIF > 5  : moderate
+    #   • VIF > 10 : high
+    # Note: VIF can be sensitive to scaling and redundant features.
+
+    X_vif = sm.add_constant(X_train)  # ensure we have the same design-matrix style
+    vif_rows = []
+
+    for i, col in enumerate(X_vif.columns):
+        if col == "const":
+            continue
+        vif = variance_inflation_factor(X_vif.values, i)
+        vif_rows.append((col, vif))
+
+    vif_df = pd.DataFrame(vif_rows, columns=["feature", "VIF"]).sort_values("VIF", ascending=False)
+    print("\nVIF (higher means more multicollinearity):")
+    print(vif_df.head(10))
+
+    # How to read this with our coefficients:
+    #   If a feature has a very high VIF, we should be cautious interpreting its coefficient
+    #   or its p-value in isolation.
+
+
+
 
 ''' ----------- Retrospection ----------------
 Q) 
@@ -374,4 +444,18 @@ Q) What does OLS stand for?
 
 	If you want a 1-line intuition: OLS finds the line that best fits the data by minimizing squared mistakes.
 
+'''
+
+#=========================================================
+# Summarization in simple words
+#=========================================================
+'''
+	We used statsmodels OLS to fit a linear regression model and inspect interpretability outputs. 
+    
+    Since statsmodels does not add an intercept automatically, we added it explicitly using sm.add_constant(X_train) to create X_train_sm. 
+    We fit OLS on y_train and X_train_sm and interpreted the results: coefficients (including const as the intercept), 
+    standard errors, confidence intervals, p-values, and R^2 vs adjusted R^2. 
+    
+    We practiced interpreting coefficients as “+1 unit change in X changes predicted y by the coefficient, holding other features constant,” 
+    and we learned that correlated features (multicollinearity) can make coefficient signs/magnitudes unstable or counterintuitive.
 '''
