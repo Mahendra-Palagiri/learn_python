@@ -496,3 +496,23 @@ Understanding Coefficients change:
         •	Ridge with the alphas we tried does not improve validation vs plain LinearRegression; the best alpha is extremely small, meaning regularization isn’t helping much for this specific feature set and model (or we’d need a different alpha range / preprocessing / feature engineering to see gains).
         •	Our model performance is stable: validation RMSE ~0.734 and test RMSE ~0.745 (slightly worse on test, which is normal).
 '''
+
+#=========================================================
+# Summarization in simple words
+#=========================================================
+'''
+    we fit a reference LinearRegression model on the training set and evaluated MAE/RMSE/R² on the validation set. 
+    
+    Then we used statsmodels OLS influence diagnostics to identify the top 10 most influential training points by Cook’s Distance. 
+    We removed these top 10 rows from training only, retrained LinearRegression, and re-evaluated on validation. 
+    
+    The validation metrics became dramatically worse (RMSE exploded and R² turned highly negative), 
+    showing that these influential points were not harmless noise—removing them destabilized the model. 
+    
+    We then compared coefficients before vs after removal and 
+    observed that some coefficients were relatively stable (especially Latitude/Longitude and MedInc), 
+    while others showed large percentage changes (notably Population and AveOccup), 
+    often because the original coefficients were close to zero and sign flips make percentage change look huge. 
+    
+    We also tried Ridge with scaling; at small alphas it behaved almost identically to LinearRegression on validation.
+'''

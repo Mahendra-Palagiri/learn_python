@@ -421,3 +421,27 @@ Understand more about the metrics
     These are the row indices in the training set with the highest influence.
     
 '''
+
+
+#=========================================================
+# Summarization in simple words
+#=========================================================
+'''
+    We used statsmodels OLS and explicitly added the intercept using sm.add_constant(X_train), then used ols.get_influence() to compute influence diagnostics. 
+    
+    From the influence output we examined three metrics: 
+        * studentized residuals, 
+        * leverage (hat values), and 
+        * Cook’s Distance. 
+        
+    Studentized residuals are residuals scaled by their estimated standard deviation (a standardized error), 
+
+    where |SR|>2 is worth inspecting and |SR|>3 is very large. 
+    Average leverage is roughly (p+1)/n (with p features and n rows), and 
+    a common Cook’s D flag is 4/n. 
+    
+    We ranked the top 10 most influential points by Cook’s D and saw that 
+    * high influence typically comes from high leverage (unusual X), large standardized residuals (big error), or both. 
+    * We learned that “high Cook’s D” means a point can significantly affect model parameters,
+      but it doesn’t automatically mean the point is wrong or should be removed.
+'''
