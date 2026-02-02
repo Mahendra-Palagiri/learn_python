@@ -180,7 +180,7 @@ Interpretation (simple):
 '''
 
 ''' ---- RETROSPECTION -----
-What patterns mean (simple mapping)
+What does these patterns mean   (4.1 Regression_diagnositics.png (simple mapping)
 
 **** If we see a “curve” in residuals vs predicted
 
@@ -214,19 +214,19 @@ What patterns mean (simple mapping)
 
 We defined residuals as:
 
-\text{residual} = \hat{y} - y
+residual = yˆ - y
 
 In the California Housing dataset, the target MedHouseVal is capped at 5.0 (in $100k units). So:
 
-y \le 5
+y <= 5
 
 That means residuals must satisfy:
 
-\text{residual} = \hat{y} - y \ge \hat{y} - 5
+residual = yˆ - y >= y - 5
 
 So there’s a hard lower boundary line:
 
-\text{residual} = \hat{y} - 5
+residual = yˆ - 5
 
 ✅ That is exactly the sharp diagonal “floor” you’re seeing.
 Points can’t fall below it because the true y can’t exceed 5.
@@ -301,8 +301,8 @@ Interpolate "What patterns mean (simple mapping)" explanation with the charts an
 mapping, applied to our charts
 
 What we’re looking at
-	•	x-axis: Predicted \hat{y}
-	•	y-axis: Residual (\hat{y} - y)
+	•	x-axis: Predicted y
+	•	y-axis: Residual (y - y)
 	•	A “perfect” world would look like a random cloud centered around 0, with roughly the same vertical spread everywhere.
 
 ⸻
@@ -375,4 +375,20 @@ Regime B: predicted > ~5
 The plot is heavily influenced by label capping at 5, which creates the sharp diagonal boundary and makes “fan/curve” detection harder. In the uncapped region (pred 0–4), residuals look reasonably cloud-like without a strong curve or funnel.
 
 That’s a good, honest diagnosis.
+'''
+
+
+#=========================================================
+# Summarization in simple words
+#=========================================================
+'''
+	We fit our Linear Regression model on the training set, predicted on the validation set, and computed residuals from y_val and y_pred. 
+    
+    We evaluated RMSE and used diagnostic plots—
+    	* Actual vs Predicted, 
+        * Residuals vs Predicted (fitted), and 
+        * a histogram of residuals—to look for assumption violations like non-linearity (curved residual pattern) or heteroskedasticity (funnel/fan). 
+        
+    In our case, the California Housing target is capped at 5.0 (≈ $500k), 
+    which creates an artificial boundary in residual plots (a diagonal floor/ceiling effect), making classic patterns harder to read.
 '''
