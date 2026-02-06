@@ -194,7 +194,8 @@ Q) Explain a bit more about random forest
 
         Why a single tree overfits
 
-        If we allow it to grow deep, it can make tiny regions that match training data too perfectly (memorization). That’s why DT often gets low training error but worse validation error.
+        If we allow it to grow deep, it can make tiny regions that match training data too perfectly (memorization). 
+        That’s why DT often gets low training error but worse validation error.
 
     ⸻
 
@@ -289,4 +290,23 @@ Q) Explain a bit more about random forest
 
         A forest can model more of the real structure.
 
+'''
+
+#=========================================================
+# Summarization in simple words
+#=========================================================
+'''
+    we used our LinearRegression validation metrics as a reference point. 
+    
+    We trained a DecisionTreeRegressor and tried multiple max_depth settings (2, 4, 6, 8, 10, …, None), 
+    then selected the depth that produced the lowest validation RMSE. 
+    
+    Next, we trained a RandomForestRegressor using different combinations of n_estimators (number of trees) and max_depth (depth limit per tree). 
+    We picked the best RF configuration by validation RMSE and observed a clear improvement over both the single decision tree and linear regression. 
+    
+    The key learning was that Random Forest tends to generalize better than a single tree because 
+    it averages many diverse trees (reducing overfitting). 
+    
+    In our results, validation RMSE improved from roughly LR ~0.734 → DT ~0.665 → RF ~0.513, 
+    showing that non-linear models capture patterns the linear model can’t.
 '''
