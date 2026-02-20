@@ -148,10 +148,10 @@ A motivation to learn AI using Python
 
 ------------------------------------------------------------------------------------------------------------
 <details>
-<summary>🚧 📙 Week 7: Model Selection & Validation </summary>
+<summary>✅  📙 Week 7: Model Selection & Validation </summary>
 <br/>
 
-- **Status**: 🚧 In Progress  
+- **Status**: ✅ Completed   
 - **Topics Planned**:
     - Model selection vs model assessment (what you tune vs what you report)
     - Bias–variance tradeoff (intuition + practical symptoms: underfit/overfit)
