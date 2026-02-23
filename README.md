@@ -14,7 +14,7 @@ A motivation to learn AI using Python
 |       | Week 4 | Advanced Pandas & Viz | Grouped statistics, weighted averages | ✅ Done | Nov 2025 |
 | **3 – ML Foundations**  | Week 5 | Classification deep dive | Logistic function, odds, log-odds | ✅ Done | Dec 2025 |
 |       | Week 6 | Regression deep dive | Linear equations, least squares, RMSE formula | ✅ Done   | Jan 2026 |
-|       | Week 7 | Model selection & validation | Bias-variance tradeoff, cross-validation math | 🚧 InProgress |  |
+|       | Week 7 | Model selection & validation | Bias-variance tradeoff, cross-validation math | ✅ Done  | Feb 2026  |
 |       | Week 8 | Mini capstone | Consolidation of above | 📅 To Do |  |
 | **4 – Deep Learning Foundations**  | Week 9 | Neural networks basics | Derivatives, chain rule, gradient descent math | 📅 To Do |  |
 |       | Week 10 | PyTorch basics | Matrix multiplication, dot products | 📅 To Do |  |
@@ -175,6 +175,40 @@ A motivation to learn AI using Python
 
 - **Time Frame**: Feb 2026  
 - **Week7 Content -->**: [▶️ Week7](docs/curriculum/7.week7.md)
+
+</details>
+------------------------------------------------------------------------------------------------------------
+<details>
+<summary>🚧  📙 Week 8: Mini Capstone </summary>
+<br/>
+
+- **Status**: 🚧 InProgress   
+- **Goal (What we will prove this week)**:
+  - we can run an **end-to-end ML workflow** that is *clean, reproducible, and defensible* (no leakage, proper validation, honest test result).
+
+- **Mini Capstone Deliverables**:
+  - A complete project folder under `projects/week8_capstone/` including:
+    - `src/` (pipeline + training + evaluation code)
+    - `reports/` (final comparison table + model defense write-up)
+    - optional: `notebooks/` for exploration only (final logic lives in `src/`)
+  - A final “Model Defense” write-up (1–2 pages):
+    - metric choice + why+
+    - leakage prevention proof (Pipeline + CV discipline)
+    - model comparison (CV mean + variance)
+    - final holdout test result (used once)
+    - risks + next steps
+
+- **Topics Covered**:
+    - End-to-end ML workflow: problem → data → model → evaluation → decision
+    - Proper splitting patterns (train/validation/test) + leakage prevention
+    - Pipelines: preprocessing **inside** CV folds
+    - Baseline vs candidate models (fair comparison)
+    - Hyperparameter tuning with CV (GridSearchCV / RandomizedSearchCV)
+    - Model comparison using CV mean + variance (stability matters)
+    - Final evaluation on a true holdout test set (single use)
+
+- **Time Frame**: Feb 2026  
+- **Week8 Content -->**: [▶️ Week8](docs/curriculum/8.week8.md)
 
 </details>
 
