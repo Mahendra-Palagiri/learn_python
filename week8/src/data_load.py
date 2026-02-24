@@ -40,6 +40,7 @@ class DatasetSpec:
     source: str              # "local" or "seaborn"
     filename: str            # local cache filename
     target_col: str
+    leakage_cols: list[str]
     seaborn_name: str | None = None  # e.g. "titanic"
 
 def project_root() -> Path:
