@@ -1,0 +1,4 @@
+Model,BestParams,Accuracy,F1_macro,ROC_AUC_micro_OvR
+LogisticRegression,"{'model__C': 10.0, 'model__penalty': 'l2', 'model__solver': 'lbfgs'}",1.0,1.0,1.0
+DecisionTree,"{'model__min_samples_split': 10, 'model__min_samples_leaf': 4, 'model__max_depth': 6, 'model__criterion': 'gini'}",0.9666666666666667,0.9665831244778612,0.9733333333333334
+KNN,"{'model__n_neighbors': 5, 'model__p': 2, 'model__weights': 'uniform'}",0.9333333333333333,0.9326599326599326,0.9944444444444445
