@@ -15,7 +15,7 @@ A motivation to learn AI using Python
 | **3 – ML Foundations**  | Week 5 | Classification deep dive | Logistic function, odds, log-odds | ✅ Done | Dec 2025 |
 |       | Week 6 | Regression deep dive | Linear equations, least squares, RMSE formula | ✅ Done   | Jan 2026 |
 |       | Week 7 | Model selection & validation | Bias-variance tradeoff, cross-validation math | ✅ Done  | Feb 2026  |
-|       | Week 8 | Mini capstone | Consolidation of above | 📅 To Do |  |
+|       | Week 8 | Mini capstone | Consolidation of above | ✅ Done  | Feb 2026  |
 | **4 – Deep Learning Foundations**  | Week 9 | Neural networks basics | Derivatives, chain rule, gradient descent math | 📅 To Do |  |
 |       | Week 10 | PyTorch basics | Matrix multiplication, dot products | 📅 To Do |  |
 |       | Week 11 | CNNs | Convolution operation math | 📅 To Do |  |
@@ -53,7 +53,7 @@ A motivation to learn AI using Python
   - I/O   
 - **Days Spent**: 3  
 - **Time Frame**: July 2025
-- **Week1 Content -->**: [▶️ Week1](docs/curriculum/1.week1.md)
+- **Week1 Content -->**: [▶️ Week1](docs/curriculum/1-PythonFundations/1.week1.md)
 
 </details>
 ------------------------------------------------------------------------------------------------------------
@@ -69,7 +69,7 @@ A motivation to learn AI using Python
 	- Seaborn  
 - **Days Spent**: 4  
 - **Time Frame**: Aug 2025
-- **Week2 Content -->**: [▶️ Week2](docs/curriculum/2.week2.md)
+- **Week2 Content -->**: [▶️ Week2](docs/curriculum/1-PythonFundations/2.week2.md)
 
 </details>
 ------------------------------------------------------------------------------------------------------------
@@ -84,7 +84,7 @@ A motivation to learn AI using Python
 	- K-Nearest Neighbors (KNN), train/test split, evaluation metrics (accuracy, classification report, confusion matrix), and cross-validation.
 - **Days Spent**: 10  
 - **Time Frame**: Sep & Oct 2025 
-- **Week3 Content -->**: [▶️ Week3](docs/curriculum/3.week3.md)
+- **Week3 Content -->**: [▶️ Week3](docs/curriculum/2-DataAnalysis_Visualization/3.week3.md)
 
 </details>
 ------------------------------------------------------------------------------------------------------------
@@ -101,7 +101,7 @@ A motivation to learn AI using Python
 	- Intermediate Models: Random Forests & SVM
 	- Model Evaluation Deep Dive
 - **Time Frame**: Oct & Nov 2025  
-- **Week4 Content -->**: [▶️ Week4](docs/curriculum/4.week4.md)
+- **Week4 Content -->**: [▶️ Week4](docs/curriculum/2-DataAnalysis_Visualization/4.week4.md)
 
 </details>
 ------------------------------------------------------------------------------------------------------------
@@ -119,7 +119,7 @@ A motivation to learn AI using Python
     - Regularization: L1 & L2
     - Hyperparameter Tuning (GridSearchCV, RandomizedSearchCV)
 - **Time Frame**: Nov & Dec 2025  
-- **Week5 Content -->**: [▶️ Week5](docs/curriculum/5.week5.md)
+- **Week5 Content -->**: [▶️ Week5](docs/curriculum/3-MLFoundations/5.week5.md)
 
 </details>
 
@@ -141,7 +141,7 @@ A motivation to learn AI using Python
     - Regularization + CV: Ridge, Lasso, Elastic Net (stability + tradeoffs)
     - Capstone: end-to-end regression workflow + model defense write-up
 - **Time Frame**: Dec 2025  & Jan 2026
-- **Week6 Content -->**: [▶️ Week6](docs/curriculum/6.week6.md)
+- **Week6 Content -->**: [▶️ Week6](docs/curriculum/3-MLFoundations/6.week6.md)
 
 </details>
 
@@ -174,15 +174,15 @@ A motivation to learn AI using Python
         - variance/uncertainty intuition (why folds give a distribution)
 
 - **Time Frame**: Feb 2026  
-- **Week7 Content -->**: [▶️ Week7](docs/curriculum/7.week7.md)
+- **Week7 Content -->**: [▶️ Week7](docs/curriculum/3-MLFoundations/7.week7.md)
 
 </details>
 ------------------------------------------------------------------------------------------------------------
 <details>
-<summary>🚧  📙 Week 8: Mini Capstone </summary>
+<summary>✅   📙 Week 8: Mini Capstone </summary>
 <br/>
 
-- **Status**: 🚧 InProgress   
+- **Status**: ✅ Completed   
 - **Goal (What we will prove this week)**:
   - we can run an **end-to-end ML workflow** that is *clean, reproducible, and defensible* (no leakage, proper validation, honest test result).
 
@@ -208,7 +208,7 @@ A motivation to learn AI using Python
     - Final evaluation on a true holdout test set (single use)
 
 - **Time Frame**: Feb 2026  
-- **Week8 Content -->**: [▶️ Week8](docs/curriculum/8.week8.md)
+- **Week8 Content -->**: [▶️ Week8](docs/curriculum/3-MLFoundations/8.week8.md)
 
 </details>
 
