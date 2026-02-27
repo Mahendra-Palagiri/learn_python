@@ -40,3 +40,27 @@
 - We select **GradientBoosting** as the provisional leader (highest mean ROC-AUC).
 - We note RandomForest is the most stable (lowest std), but its mean ROC-AUC is lower.
 - We proceed to Phase 4 tuning for GradientBoosting using CV only (no test-set access).
+
+
+## Phase 4 — Tuning (GradientBoosting)
+
+- **Method:** RandomizedSearchCV
+- **Budget:** n_iter = 30
+- **CV:** StratifiedKFold (5 folds, shuffle=True, seed=42)
+- **Primary Metric:** ROC-AUC
+
+### Best Result
+- **Best ROC-AUC (CV mean ± std):** 0.8895 ± 0.0214
+- **Best Params:**
+  - model__subsample: 1.0
+  - model__n_estimators: 350
+  - model__min_samples_leaf: 10
+  - model__max_depth: 2
+  - model__learning_rate: 0.18
+
+### Top 5 Configs (rank | mean ± std | params)
+1) 0.8895 ± 0.0214 | subsample=1.0, n_estimators=350, min_samples_leaf=10, max_depth=2, learning_rate=0.18  
+2) 0.8868 ± 0.0244 | subsample=1.0, n_estimators=350, min_samples_leaf=1,  max_depth=2, learning_rate=0.10  
+3) 0.8848 ± 0.0141 | subsample=0.8, n_estimators=250, min_samples_leaf=10, max_depth=3, learning_rate=0.16  
+4) 0.8846 ± 0.0248 | subsample=1.0, n_estimators=225, min_samples_leaf=1,  max_depth=2, learning_rate=0.16  
+5) 0.8825 ± 0.0271 | subsample=0.8, n_estimators=325, min_samples_leaf=10, max_depth=2, learning_rate=0.02

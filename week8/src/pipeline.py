@@ -47,8 +47,13 @@ def build_logreg(seed: int) -> LogisticRegression:
 def build_rf(seed: int) -> RandomForestClassifier:
     return RandomForestClassifier(n_estimators=400,random_state=seed,n_jobs=-1)
 
-def build_gb(seed: int) -> GradientBoostingClassifier:
-    return GradientBoostingClassifier(random_state=seed)
+#Phase-3
+# def build_gb(seed: int) -> GradientBoostingClassifier:
+#     return GradientBoostingClassifier(random_state=seed)
+
+#Phase-4
+def build_gb(seed: int,**params) -> GradientBoostingClassifier:
+    return GradientBoostingClassifier(random_state=seed,**params)
 
 def build_pipeline(model, schema: FeatureSchema) -> Pipeline:
     final_pipe = Pipeline([
