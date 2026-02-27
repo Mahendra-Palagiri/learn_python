@@ -7,6 +7,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler,OneHotEncoder
 from sklearn.impute import SimpleImputer
 from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import RandomForestClassifier,GradientBoostingClassifier
 
 
 @dataclass(frozen=True)
@@ -40,11 +41,19 @@ def build_preprocessor(schema: FeatureSchema) -> ColumnTransformer:
 
     return pre_prcsr
 
+def build_logreg(seed: int) -> LogisticRegression:
+    return LogisticRegression(max_iter=2000,random_state=seed)
 
-def build_baseline_pipeline(schema: FeatureSchema, seed:int) -> Pipeline:
+def build_rf(seed: int) -> RandomForestClassifier:
+    return RandomForestClassifier(n_estimators=400,random_state=seed,n_jobs=-1)
+
+def build_gb(seed: int) -> GradientBoostingClassifier:
+    return GradientBoostingClassifier(random_state=seed)
+
+def build_pipeline(model, schema: FeatureSchema) -> Pipeline:
     final_pipe = Pipeline([
         ('preprocess',build_preprocessor(schema)),
-        ('model',LogisticRegression(max_iter=1000, random_state=seed))
+        ('model',model)
     ])
 
     return final_pipe
