@@ -211,6 +211,28 @@ A motivation to learn AI using Python
 - **Week8 Content -->**: [▶️ Week8](docs/curriculum/3-MLFoundations/8.week8.md)
 
 </details>
+------------------------------------------------------------------------------------------------------------
+<details>
+<summary>🔜 📕 Week 9: Neural Networks Basics </summary>
+<br/>
+
+- **Status**: 🔜 Planned
+- **Topics Planned**:
+    - What a neural network is: layers, neurons, weights, biases
+    - From linear models to neural networks: why stacked transformations matter
+    - Forward propagation: how inputs become predictions
+    - Activation functions: ReLU, sigmoid, tanh and why non-linearity matters
+    - Loss functions intuition: measuring prediction error
+    - Gradient descent recap in the neural network setting
+    - Backpropagation intuition: how the model learns from error signals
+    - Training loop basics: epochs, batches, learning rate
+    - Overfitting in neural networks and early regularization ideas
+    - Building a first tiny neural network using a deep learning library
+
+- **Time Frame**: Mar 2026  
+- **Week9 Content -->**: [▶️ Week9](docs/curriculum/4-DeepLearningFoundations/9.week9.md)
+
+</details>
 
 <br/>
 
