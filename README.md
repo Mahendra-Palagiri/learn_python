@@ -1,4 +1,4 @@
-## 🐍 **Mahi's** Journey into Python and AI Land  
+# 🐍 **Mahi's** Journey into Python and AI Land
 
 A motivation to learn AI using Python
 
@@ -29,13 +29,13 @@ A motivation to learn AI using Python
 |       | Week 19–20 | Final capstone | Apply all math learned | 📅 To Do |  |
 
 </details>
-</br>
+<br/>
 
 <details>
 <summary>📅 Week-by-Week Learning Journey (Click to Expand...)</summary>
 <br/>
 
--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---
 > - **Tools Setup -->**: [▶️ Tools-setup](docs/misc/tools-setup.md)
 > - **Cheat Sheet -->**: [▶️ Cheat-sheet](docs/misc/cheat-sheets.md)
 ------------------------------------------------------------------------------------
