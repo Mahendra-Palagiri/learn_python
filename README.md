@@ -16,7 +16,7 @@ A motivation to learn AI using Python
 |       | Week 6 | Regression deep dive | Linear equations, least squares, RMSE formula | ✅ Done   | Jan 2026 |
 |       | Week 7 | Model selection & validation | Bias-variance tradeoff, cross-validation math | ✅ Done  | Feb 2026  |
 |       | Week 8 | Mini capstone | Consolidation of above | ✅ Done  | Feb 2026  |
-| **4 – Deep Learning Foundations**  | Week 9 | Neural networks basics | Derivatives, chain rule, gradient descent math | 📅 To Do |  |
+| **4 – Deep Learning Foundations**  | Week 9 | Neural networks basics | Derivatives, chain rule, gradient descent math | ✅ Done | Mar 2026 |
 |       | Week 10 | PyTorch basics | Matrix multiplication, dot products | 📅 To Do |  |
 |       | Week 11 | CNNs | Convolution operation math | 📅 To Do |  |
 |       | Week 12 | Mini capstone | Consolidation of above | 📅 To Do |  |
@@ -213,11 +213,11 @@ A motivation to learn AI using Python
 </details>
 ------------------------------------------------------------------------------------------------------------
 <details>
-<summary>🔜 📕 Week 9: Neural Networks Basics </summary>
+<summary>✅ 📕 Week 9: Neural Networks Basics </summary>
 <br/>
 
-- **Status**: 🔜 Planned
-- **Topics Planned**:
+- **Status**: ✅ Completed
+- **Topics Covered**:
     - What a neural network is: layers, neurons, weights, biases
     - From linear models to neural networks: why stacked transformations matter
     - Forward propagation: how inputs become predictions
@@ -227,10 +227,28 @@ A motivation to learn AI using Python
     - Backpropagation intuition: how the model learns from error signals
     - Training loop basics: epochs, batches, learning rate
     - Overfitting in neural networks and early regularization ideas
-    - Building a first tiny neural network using a deep learning library
-
+    - Building a first tiny neural network using PyTorch
 - **Time Frame**: Mar 2026  
 - **Week9 Content -->**: [▶️ Week9](docs/curriculum/4-DeepLearningFoundations/9.week9.md)
+
+</details>
+------------------------------------------------------------------------------------------------------------
+<details>
+<summary>🔜 📕 Week 10: PyTorch Basics </summary>
+<br/>
+
+- **Status**: 🔜 Planned
+- **Topics Planned**:
+    - What PyTorch is and why it is useful in deep learning workflows
+    - Tensors as the core data structure in PyTorch
+    - Tensor creation, shape, dtype, indexing, slicing, and reshaping
+    - Autograd basics: `requires_grad`, computation graphs, and `.backward()`
+    - Building models with `nn.Module`, `nn.Linear`, and `forward()`
+    - How loss functions and optimizers fit into the PyTorch training workflow
+    - Dataset, DataLoader, batches, and mini-batch iteration
+    - A small end-to-end PyTorch workflow tying tensors, model, loss, optimizer, and training loop together
+- **Time Frame**: Apr 2026  
+- **Week10 Content -->**: [▶️ Week10](docs/curriculum/4-DeepLearningFoundations/10.week10.md)
 
 </details>
 
